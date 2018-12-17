@@ -16,3 +16,6 @@ var p1:String = View.askPlayerName(askPhrase: "So, what's your name Player 1 ?")
 print("Now, for an epic battle, you need a great opponent.\n")
 
 var p2:String = View.askPlayerName(askPhrase: "How should I call you, Player 2 ?")
+
+
+
