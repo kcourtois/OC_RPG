@@ -13,7 +13,7 @@ enum ClassName {
     case Fighter, Mage, Colossus, Dwarf
 }
 
-//Role determins the use of weapon power.
+//Role determines the use of weapon power.
 enum Role {
     case Damage, Heal
 }
