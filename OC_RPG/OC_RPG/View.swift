@@ -24,10 +24,14 @@ class View {
             print(askPhrase)
             //Get input from the user
             if let userInput = readLine(){
-                print("\n\(userInput), that's it ? (y/n)")
                 if(View.isNameAvailable(name: userInput, game: game, whoFor: whoFor)){
                     //Ask confirmation
-                    goOn = View.YesNoInput()
+                    print("\n\(userInput), that's it ? (y/n)")
+                    //If user says yes
+                    if View.YesNoInput() {
+                        //return name picked
+                        return userInput
+                    }
                 }
                 else{
                     print("\nNope, this name is not available !\n")
@@ -58,22 +62,22 @@ class View {
                 switch userInput {
                     case "1":
                         className = "Fighter"
-                        print("\n\(className), that's what you want ? \n")
+                        print("\n\(className), that's what you want ? (y/n) \n")
                         //Ask confirmation
                         goOn = View.YesNoInput()
                     case "2":
                         className = "Mage"
-                        print("\n\(className), that's what you want ? \n")
+                        print("\n\(className), that's what you want ? (y/n) \n")
                         //Ask confirmation
                         goOn = View.YesNoInput()
                     case "3":
                         className = "Colossus"
-                        print("\n\(className), that's what you want ? \n")
+                        print("\n\(className), that's what you want ? (y/n) \n")
                         //Ask confirmation
                         goOn = View.YesNoInput()
                     case "4":
                         className = "Dwarf"
-                        print("\n\(className), that's what you want ? \n")
+                        print("\n\(className), that's what you want ? (y/n) \n")
                         //Ask confirmation
                         goOn = View.YesNoInput()
                     default:
@@ -130,18 +134,17 @@ class View {
     //Test if the name given in param is used by a character in the game.
     static func isNameAvailable(name:String, game:Game, whoFor:NameUsage) -> Bool{
         if(whoFor == .Character){
-            print("CHAAAAAAAAAAAAAR")
             //Runs through player1 team
             for char in game.player1.team {
                 //If the name is taken by a character, return false (not available)
-                if char.name.elementsEqual(name) {
+                if (char.name.lowercased() == name.lowercased()) {
                     return false
                 }
             }
             //Runs through player2 team
             for char in game.player2.team {
                 //If the name is taken by a character, return false (not available)
-                if char.name.elementsEqual(name) {
+                if char.name.lowercased() == name.lowercased() {
                     return false
                 }
             }
@@ -150,7 +153,7 @@ class View {
         }
         else {
             //If the name is taken by a player, return false (not available)
-            if (game.player1.name.elementsEqual(name) || game.player2.name.elementsEqual(name)) {
+            if (game.player1.name.lowercased() == name.lowercased() || game.player2.name.lowercased() == name.lowercased()) {
                 return false
             }
             //If the name wasn't found in any team, return true
