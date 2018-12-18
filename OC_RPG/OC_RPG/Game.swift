@@ -11,12 +11,14 @@ import Foundation
 //This class will hold all the datas of a game.
 
 class Game {
-    let player1:Player
-    let player2:Player
+    
+    enum Status {
+        case Started, Ended
+    }
+    
+    var player1:Player = Player(name:"p1")
+    var player2:Player = Player(name:"p2")
     let nbOfTurns:Int = 0
     
-    init(player1:Player, player2:Player) {
-        self.player1 = player1
-        self.player2 = player2
-    }
+    var status:Status = .Started
 }
