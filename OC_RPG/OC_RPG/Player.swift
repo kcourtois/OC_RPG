@@ -16,8 +16,4 @@ class Player {
         self.name = name
         self.team = []
     }
-    
-    //func buildPlayerTeam() -> [Character] {
-    //    return [Character(name:"dummy", archetype: Archetype(archName:ClassName.Fighter, archRole:Role.Damage), life: 10, weapon: Weapon(name: "test", power: 1))]
-    //}
 }

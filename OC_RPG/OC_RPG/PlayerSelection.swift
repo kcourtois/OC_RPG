@@ -13,6 +13,7 @@ class View {
     //askPhrase is a parameter that helps the function to be less
     //repetitive when asking multiple names in a row.
     
+    //Enum for askName. We can ask a player's name or a character's name
     enum NameUsage {
         case Player, Character
     }
@@ -24,17 +25,24 @@ class View {
             print(askPhrase)
             //Get input from the user
             if let userInput = readLine(){
-                if(View.isNameAvailable(name: userInput, game: game, whoFor: whoFor)){
-                    //Ask confirmation
-                    print("\n\(userInput), that's it ? (y/n)")
-                    //If user says yes
-                    if View.YesNoInput() {
-                        //return name picked
-                        return userInput
+                //Check that user doesn't write a name too big
+                if(userInput.count <= 30) {
+                    if(View.isNameAvailable(name: userInput, game: game, whoFor: whoFor)){
+                        //Ask confirmation
+                        print("\n\(userInput), that's it ? (y/n)")
+                        //If user says yes
+                        if View.YesNoInput() {
+                            //return name picked
+                            return userInput
+                        }
+                    }
+                    else{
+                        print("\nNope, this name is not available !\n")
+                        goOn = false
                     }
                 }
-                else{
-                    print("\nNope, this name is not available !\n")
+                else {
+                    print("\nYo, you're trying to write a book or what ?\n")
                     goOn = false
                 }
             }
@@ -46,6 +54,30 @@ class View {
         return "error"
     }
     
+    //Static function to ask a the user to input yes or no. Returns a boolean.
+    static func YesNoInput() -> Bool {
+        if let yesNo = readLine(){
+            //Confirmation switch
+            switch yesNo.lowercased() {
+            case "y","yes":
+                print("\nAlright !\n")
+                return true
+            case "n","no":
+                print("\nHum... I guess i did not hear you well !\n")
+                return false
+            default:
+                print("\nHum... I guess i did not hear you well !\n")
+                return false
+            }
+        }
+        else{
+            print("\nHum... I guess i did not hear you well !\n")
+            return false
+        }
+    }
+    
+    //Func for character creation. Ask the user for the class and name of his character and
+    //returns a character with this datas.
     static func createCharacter(game:Game) -> Character {
         //GoOn is a bool used to keep asking the player name if we didn't get it correctly.
         var goOn:Bool = false
@@ -110,27 +142,7 @@ class View {
         
     }
     
-    //Static function to ask a the user to input yes or no. Returns a boolean.
-    static func YesNoInput() -> Bool {
-        if let yesNo = readLine(){
-            //Confirmation switch
-            switch yesNo {
-            case "y","yes":
-                print("\nAlright !\n")
-                return true
-            case "n","no":
-                print("\nHum... I guess i did not hear you well !\n")
-                return false
-            default:
-                print("\nHum... I guess i did not hear you well !\n")
-                return false
-            }
-        }
-        else{
-            print("\nHum... I guess i did not hear you well !\n")
-            return false
-        }
-    }
+
     //Test if the name given in param is used by a character in the game.
     static func isNameAvailable(name:String, game:Game, whoFor:NameUsage) -> Bool{
         if(whoFor == .Character){
