@@ -8,16 +8,16 @@
 
 import Foundation
 
-class View {
-    //Static function to ask a name.
-    //askPhrase is a parameter that helps the function to be less
-    //repetitive when asking multiple names in a row.
+class PlayerSelection {
     
     //Enum for askName. We can ask a player's name or a character's name
     enum NameUsage {
         case Player, Character
     }
     
+    //Static function to ask a name.
+    //askPhrase is a parameter that helps the function to be less
+    //repetitive when asking multiple names in a row.
     static func askName(askPhrase:String, game:Game, whoFor:NameUsage) -> String {
         //GoOn is a bool used to keep asking the player name if we didn't get it correctly.
         var goOn:Bool = false
@@ -27,11 +27,11 @@ class View {
             if let userInput = readLine(){
                 //Check that user doesn't write a name too big
                 if(userInput.count <= 30) {
-                    if(View.isNameAvailable(name: userInput, game: game, whoFor: whoFor)){
+                    if(PlayerSelection.isNameAvailable(name: userInput, game: game, whoFor: whoFor)){
                         //Ask confirmation
                         print("\n\(userInput), that's it ? (y/n)")
                         //If user says yes
-                        if View.YesNoInput() {
+                        if PlayerSelection.YesNoInput() {
                             //return name picked
                             return userInput
                         }
@@ -96,22 +96,22 @@ class View {
                         className = "Fighter"
                         print("\n\(className), that's what you want ? (y/n) \n")
                         //Ask confirmation
-                        goOn = View.YesNoInput()
+                        goOn = PlayerSelection.YesNoInput()
                     case "2":
                         className = "Mage"
                         print("\n\(className), that's what you want ? (y/n) \n")
                         //Ask confirmation
-                        goOn = View.YesNoInput()
+                        goOn = PlayerSelection.YesNoInput()
                     case "3":
                         className = "Colossus"
                         print("\n\(className), that's what you want ? (y/n) \n")
                         //Ask confirmation
-                        goOn = View.YesNoInput()
+                        goOn = PlayerSelection.YesNoInput()
                     case "4":
                         className = "Dwarf"
                         print("\n\(className), that's what you want ? (y/n) \n")
                         //Ask confirmation
-                        goOn = View.YesNoInput()
+                        goOn = PlayerSelection.YesNoInput()
                     default:
                         print("\nNope, can't pick that. Try again ! \n")
                         goOn = false
@@ -124,7 +124,7 @@ class View {
         }
         
         //Ask character's name
-        let charName:String = View.askName(askPhrase: "What will be your character's name ?", game: game, whoFor: .Character)
+        let charName:String = PlayerSelection.askName(askPhrase: "What will be your character's name ?", game: game, whoFor: .Character)
         
         //Return the right character
         switch className {

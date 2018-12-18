@@ -16,4 +16,12 @@ class Player {
         self.name = name
         self.team = []
     }
+    
+    func printTeam() -> String {
+        var output:String = ""
+        for char in team {
+            output += "\(char.name), \(char.archetype.archName).\n"
+        }
+        return output
+    }
 }
