@@ -54,3 +54,21 @@ game.player2.team.append(Fighter(name: "Fen"))
 print("\nNow it's time for a quick recap. Here's what your team are made of.\n")
 print("\(game.player1.name), you have : \n\(game.player1.printTeam())\n")
 print("\(game.player2.name), you have : \n\(game.player2.printTeam())\n")
+
+//Sleep for 1 second to let the player read the text.
+sleep(1)
+
+print("\nOk. Here's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. Hope you guys are ready, cause here comes the battle !\n")
+
+print("We will do a Heads or Tails to know who should start. If it's heads, \(game.player1.name) starts. If it's tails, \(game.player2.name) will start. Ready ? Here comes the throw... And...\n\n")
+
+//Sleep for 1 second to let the player read the text.
+sleep(1)
+
+//Bool.random will do the heads or tails. It returns a random boolean, true represents heads and false represents tails
+if(Bool.random()){
+    print("Heads ! \(game.player1.name), you can begin the fight !")
+}
+else {
+    print("Tails ! \(game.player2.name), you can begin the fight !")
+}
