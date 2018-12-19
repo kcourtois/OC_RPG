@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+class Fight {
+    let nbOfTurns:Int = 0
+}
