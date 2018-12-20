@@ -146,15 +146,15 @@ class PlayerSelection {
     //Test if the name given in param is used by a character in the game.
     static func isNameAvailable(name:String, game:Game, whoFor:NameUsage) -> Bool{
         if(whoFor == .Character){
-            //Runs through player1 team
-            for char in game.player1.team {
+            //Runs through players[0] team
+            for char in game.players[0].team {
                 //If the name is taken by a character, return false (not available)
                 if (char.name.lowercased() == name.lowercased()) {
                     return false
                 }
             }
-            //Runs through player2 team
-            for char in game.player2.team {
+            //Runs through players[1] team
+            for char in game.players[1].team {
                 //If the name is taken by a character, return false (not available)
                 if char.name.lowercased() == name.lowercased() {
                     return false
@@ -165,7 +165,7 @@ class PlayerSelection {
         }
         else {
             //If the name is taken by a player, return false (not available)
-            if (game.player1.name.lowercased() == name.lowercased() || game.player2.name.lowercased() == name.lowercased()) {
+            if (game.players[0].name.lowercased() == name.lowercased() || game.players[1].name.lowercased() == name.lowercased()) {
                 return false
             }
             //If the name wasn't found in any team, return true

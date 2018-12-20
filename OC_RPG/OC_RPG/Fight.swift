@@ -13,7 +13,7 @@ class Fight {
     let nbOfTurns:Int = 0
     
     //Func that will run the fight between the two players.
-    func startBattle() {
+    func startBattle(game: Game) {
         
     }
 }
