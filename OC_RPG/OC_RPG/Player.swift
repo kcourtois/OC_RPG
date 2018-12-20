@@ -9,14 +9,17 @@
 import Foundation
 
 class Player {
+    //Player's name
     let name:String
     //Team will be the 3 characters created by the player.
     var team:[Character]
+    
     init(name:String) {
         self.name = name
         self.team = []
     }
     
+    //Returns a formated string with all the characters of the team, with their class and name.
     func printTeam() -> String {
         var output:String = ""
         for char in team {

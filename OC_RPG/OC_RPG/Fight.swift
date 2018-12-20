@@ -9,5 +9,11 @@
 import Foundation
 
 class Fight {
+    //Stores the number of turns that were played until the end of the battle
     let nbOfTurns:Int = 0
+    
+    //Func that will run the fight between the two players.
+    func startBattle() {
+        
+    }
 }

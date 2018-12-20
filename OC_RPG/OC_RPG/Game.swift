@@ -9,9 +9,10 @@
 import Foundation
 
 //This class will hold all the datas of a game.
-
+//Everything that happens in the game will be handled here.
 class Game {
-
+    //A game need two players to run correctly.
+    //Here we create them with default names.
     var player1:Player = Player(name:"p1")
     var player2:Player = Player(name:"p2")
 

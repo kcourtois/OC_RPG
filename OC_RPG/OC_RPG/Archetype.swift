@@ -18,10 +18,10 @@ enum Role {
     case Damage, Heal
 }
 
+//Archetype is made to hold a class and a role for a character.
 class Archetype {
     let archName:ClassName
     let archRole:Role
-    //let action:Action
     
     init(archName:ClassName, archRole:Role) {
         self.archName = archName
