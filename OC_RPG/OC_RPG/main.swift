@@ -12,7 +12,7 @@ import Foundation
 let game:Game = Game()
 
 //Starts the game.
-game.Play()
+game.play()
 
 //game.players[0] = Player(name: "Kevin")
 //game.players[1] = Player(name: "Xavier")

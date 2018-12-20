@@ -9,15 +9,8 @@
 import Foundation
 
 class Colossus: Character {
-    let name:String
-    let archetype:Archetype
-    let life:Int
-    let weapon:Weapon
-    
-    required init(name:String) {
-        self.name = name
-        self.archetype = Archetype(archName: .Colossus, archRole: .Damage)
-        self.life = 200
-        self.weapon = Weapon(name: "Wooden Mace", power: 5)
+    init(name:String) {
+        let basicWeapon = Weapon(name: "Wooden Mace", power: 5)
+        super.init(name: name, maxHp: 200, weapon: basicWeapon)
     }
 }

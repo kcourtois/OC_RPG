@@ -11,11 +11,10 @@ import Foundation
 //This class will hold all the datas of a game.
 //Everything that happens in the game will be handled here.
 class Game {
-    //A game need two players to run correctly.
-    //Here we create them with default names.
-    var players:[Player] = [Player(name:"p1"), Player(name:"p2")]
 
-    func Play(){
+    var players = [Player]()
+
+    func play(){
         print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely ! \n\n")
         
         players[0] = Player(name:PlayerSelection.askName(askPhrase: "So, what's your name Player 1 ?", game: self, whoFor: .Player))

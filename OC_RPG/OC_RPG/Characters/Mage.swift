@@ -9,15 +9,8 @@
 import Foundation
 
 class Mage: Character {
-    let name:String
-    let archetype:Archetype
-    let life:Int
-    let weapon:Weapon
-    
-    required init(name:String) {
-        self.name = name
-        self.archetype = Archetype(archName: .Mage, archRole: .Heal)
-        self.life = 100
-        self.weapon = Weapon(name: "Wooden Staff", power: 10)
+    init(name:String) {
+        let basicWeapon = Weapon(name: "Wooden Staff", power: -10)
+        super.init(name: name, maxHp: 100, weapon: basicWeapon)
     }
 }

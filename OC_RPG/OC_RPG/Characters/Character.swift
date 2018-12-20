@@ -8,11 +8,16 @@
 
 import Foundation
 
-protocol Character {
-    var name:String { get }
-    var archetype:Archetype { get }
-    var life:Int { get }
-    var weapon:Weapon { get }
+class Character {
+    let name:String
+    let maxHp:Int
+    let currentHp:Int
+    let weapon:Weapon
     
-    init(name:String)
+    init(name:String, maxHp:Int, weapon:Weapon) {
+        self.name = name
+        self.maxHp = maxHp
+        self.currentHp = maxHp
+        self.weapon = weapon
+    }
 }
