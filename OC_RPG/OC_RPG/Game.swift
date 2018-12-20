@@ -24,8 +24,14 @@ class Game {
         
         players[1] = Player(name: PlayerSelection.askName(askPhrase: "How should I call you, Player 2 ?", game: self, whoFor: .Player))
         
+        //Sleep for 1 second to let the player read the text.
+        sleep(1)
+        
         print("\nAwesome ! Now that you are both here, why don't you take some time to build a team ? \n")
         print("You have to select 3 characters. I will ask you what class you want to pick and what is your character's name. When we're done with you \(players[0].name), it will be \(players[1].name)'s turn. Let's start ! \n")
+        
+        //Sleep for 3 seconds to let the player read the text.
+        sleep(3)
         
         //PLAYER 1 TEAM SELECTION
         players[0].team.append(PlayerSelection.createCharacter(game: self))
@@ -41,6 +47,9 @@ class Game {
         players[1].team.append(PlayerSelection.createCharacter(game: self))
         print("\nLet's go for the last one !\n")
         players[1].team.append(PlayerSelection.createCharacter(game: self))
+        
+        //Sleep for 1 second to let the player read the text.
+        sleep(1)
 
         //RECAP
         print("\nNow it's time for a quick recap. Here's what your team are made of.\n")
@@ -54,11 +63,14 @@ class Game {
         
         print("We will do a Heads or Tails to know who should start. If it's heads, \(players[0].name) starts. If it's tails, \(players[1].name) will start. Ready ? Here comes the throw... And...\n\n")
         
-        //Sleep for 1 second to let the player read the text.
-        sleep(1)
+        //Sleep for 3 seconds to let the player read the text.
+        sleep(3)
         
-        //Bool.random will do the heads or tails. It returns a random boolean, true represents heads and false represents tails
-        if(Bool.random()){
+        //Create a fight object. Methods for the fight will be called from here
+        let fight = Fight()
+        
+        //fight.beginNumber will do the heads or tails. It is a random value, 0 is player1 and 1 is player2.
+        if(fight.beginNumber == 0){
             print("Heads ! \(players[0].name), you can begin the fight !")
         }
         else {
