@@ -11,6 +11,6 @@ import Foundation
 class Mage: Character {
     init(name:String) {
         let basicWeapon = Weapon(name: "Wooden Staff", power: -10)
-        super.init(name: name, maxHp: 100, weapon: basicWeapon)
+        super.init(name: name, className: "Mage", maxHp: 100, weapon: basicWeapon)
     }
 }

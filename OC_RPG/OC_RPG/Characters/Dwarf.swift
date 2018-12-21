@@ -11,6 +11,6 @@ import Foundation
 class Dwarf: Character {
     init(name:String) {
         let basicWeapon = Weapon(name: "Steel Axe", power: 20)
-        super.init(name: name, maxHp: 50, weapon: basicWeapon)
+        super.init(name: name, className:"Dwarf", maxHp: 50, weapon: basicWeapon)
     }
 }

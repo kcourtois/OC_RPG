@@ -13,11 +13,13 @@ class Character {
     let maxHp:Int
     let currentHp:Int
     let weapon:Weapon
+    let className:String
     
-    init(name:String, maxHp:Int, weapon:Weapon) {
+    init(name:String, className:String, maxHp:Int, weapon:Weapon) {
         self.name = name
         self.maxHp = maxHp
         self.currentHp = maxHp
         self.weapon = weapon
+        self.className = className
     }
 }

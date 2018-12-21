@@ -23,7 +23,7 @@ class Player {
     func printTeam() -> String {
         var output:String = ""
         for char in team {
-            output += "\(char.name), \(char.archetype.archName).\n"
+            output += "\(char.name), \(char.className).\n"
         }
         return output
     }

@@ -10,7 +10,6 @@
 		9E2FD39021C7A85300FC2A60 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD38F21C7A85300FC2A60 /* main.swift */; };
 		9E2FD39721C7AFB900FC2A60 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD39621C7AFB900FC2A60 /* Player.swift */; };
 		9E2FD39F21C7B7C000FC2A60 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD39E21C7B7C000FC2A60 /* Game.swift */; };
-		9E2FD3A221C7DDD200FC2A60 /* PlayerSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD3A121C7DDD200FC2A60 /* PlayerSelection.swift */; };
 		9E2FD3A521C7ED3E00FC2A60 /* Fighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD3A421C7ED3E00FC2A60 /* Fighter.swift */; };
 		9E2FD3A721C7ED6100FC2A60 /* Mage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD3A621C7ED6100FC2A60 /* Mage.swift */; };
 		9E2FD3A921C7ED7C00FC2A60 /* Colossus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD3A821C7ED7C00FC2A60 /* Colossus.swift */; };
@@ -39,7 +38,6 @@
 		9E2FD38F21C7A85300FC2A60 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9E2FD39621C7AFB900FC2A60 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9E2FD39E21C7B7C000FC2A60 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		9E2FD3A121C7DDD200FC2A60 /* PlayerSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelection.swift; sourceTree = "<group>"; };
 		9E2FD3A421C7ED3E00FC2A60 /* Fighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fighter.swift; sourceTree = "<group>"; };
 		9E2FD3A621C7ED6100FC2A60 /* Mage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mage.swift; sourceTree = "<group>"; };
 		9E2FD3A821C7ED7C00FC2A60 /* Colossus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colossus.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				9E2FD39621C7AFB900FC2A60 /* Player.swift */,
 				9E2FD3B021C8FDB500FC2A60 /* Fight.swift */,
 				9E2FD39E21C7B7C000FC2A60 /* Game.swift */,
-				9E2FD3A121C7DDD200FC2A60 /* PlayerSelection.swift */,
 				9EB12DFF21CC09B300C53E6B /* NameManager.swift */,
 				9EB12E0121CC09D600C53E6B /* PlayerManager.swift */,
 			);
@@ -182,7 +179,6 @@
 				9E2FD39F21C7B7C000FC2A60 /* Game.swift in Sources */,
 				9EB12E0221CC09D600C53E6B /* PlayerManager.swift in Sources */,
 				9E2FD39721C7AFB900FC2A60 /* Player.swift in Sources */,
-				9E2FD3A221C7DDD200FC2A60 /* PlayerSelection.swift in Sources */,
 				9E2FD39021C7A85300FC2A60 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
