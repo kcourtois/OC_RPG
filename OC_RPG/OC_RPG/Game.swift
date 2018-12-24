@@ -25,7 +25,7 @@ class Game {
         playerManager.addPlayer(name: askName(askPhrase: "How should I call you, Player 2 ?"))
         
         print("\nAwesome ! Now that you are both here, why don't you take some time to build a team ? \n")
-        print("You have to select 3 characters. I will ask you what class you want to pick and what is your character's name. When we're done with you \(players[0].name), it will be \(players[1].name)'s turn. Let's start ! \n")
+        print("You have to select 3 characters. I will ask you what class you want to pick and what is your character's name. When we're done with you \(playerManager.getPlayer1().name), it will be \(playerManager.getPlayer2().name)'s turn. Let's start ! \n")
         
         //PLAYER 1 TEAM SELECTION
         playerManager.getPlayer1().team.append(createCharacter())
@@ -35,7 +35,7 @@ class Game {
         playerManager.getPlayer1().team.append(createCharacter())
         
         //PLAYER 2 TEAM SELECTION
-        print("\nPerfect, now it's your turn \(players[1].name).\n")
+        print("\nPerfect, now it's your turn \(playerManager.getPlayer2().name).\n")
         playerManager.getPlayer2().team.append(createCharacter())
         print("\nNow it's time to pick your second character.\n")
         playerManager.getPlayer2().team.append(createCharacter())
@@ -73,24 +73,19 @@ class Game {
             print(askPhrase)
             //Get input from the user
             if let userInput = readLine(){
-                //Check that user doesn't write a name too big
-                if(userInput.count <= 30) {
-                    if(/*PlayerSelection.isNameAvailable(name: userInput, game: self, whoFor: .whoFor)*/true){
-                        //Ask confirmation
-                        print("\n\(userInput), that's it ? (y/n)")
-                        //If user says yes
-                        if yesNoInput() {
-                            //return name picked
-                            return userInput
-                        }
-                    }
-                    else{
-                        print("\nNope, this name is not available !\n")
-                        goOn = false
+                let userName = nameManager.isNameValid(name: userInput)
+                if(userName != "wrongName"){
+                    //Ask confirmation
+                    print("\n\(userName), that's it ? (y/n)")
+                    //If user says yes
+                    if yesNoInput() {
+                        //return name picked and register it in nameManager
+                        nameManager.registerName(name: userName)
+                        return userInput
                     }
                 }
-                else {
-                    print("\nYo, you're trying to write a book or what ?\n")
+                else{
+                    print("\nNope, this name is not available !\n")
                     goOn = false
                 }
             }
