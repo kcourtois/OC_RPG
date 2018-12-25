@@ -9,5 +9,7 @@
 import Foundation
 
 class Mace: Weapon {
-    
+    init() {
+        super.init(name: "Mace", minPower: 5, maxPower: 15)
+    }
 }

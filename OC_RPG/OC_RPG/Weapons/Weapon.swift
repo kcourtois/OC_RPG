@@ -15,9 +15,20 @@ class Weapon {
     let name:String
     //The power of a weapon is a value that can be damage or heal depending of the character's class.
     let power:Int
+    //Minimum power of the weapon
+    let minPower:Int
+    //Maximum power of the weapon
+    let maxPower:Int
     
-    init(name:String, power:Int) {
+    init(name:String, minPower:Int, maxPower:Int) {
         self.name = name
-        self.power = power
+        self.minPower = minPower
+        self.maxPower = maxPower
+        power = Int.random(in: minPower...maxPower)
+    }
+    
+    //Changes weapon power randomly in the range of min and max power
+    func generateWeaponPower() -> Int {
+        return Int.random(in: minPower...maxPower)
     }
 }
