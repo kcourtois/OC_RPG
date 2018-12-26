@@ -66,7 +66,7 @@ class Game {
     //function to ask a name.
     //askPhrase is a parameter that helps the function to be less
     //repetitive when asking multiple names in a row.
-    func askName(askPhrase:String) -> String {
+    private func askName(askPhrase:String) -> String {
         //GoOn is a bool used to keep asking the player name if we didn't get it correctly.
         var goOn:Bool = false
         while !goOn {
@@ -98,7 +98,7 @@ class Game {
     }
     
     //function to ask a the user to input yes or no. Returns a boolean.
-    func yesNoInput() -> Bool {
+    private func yesNoInput() -> Bool {
         if let yesNo = readLine(){
             //Confirmation switch
             switch yesNo.lowercased() {
@@ -121,7 +121,7 @@ class Game {
     
     //Func for character creation. Ask the user for the class and name of his character and
     //returns a character with this datas.
-    func createCharacter() -> Character {
+    private func createCharacter() -> Character {
         //GoOn is a bool used to keep asking the player name if we didn't get it correctly.
         var goOn:Bool = false
         var className:String = ""

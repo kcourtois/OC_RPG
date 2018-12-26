@@ -11,7 +11,7 @@ import Foundation
 class PlayerManager {
     
     //Stores the players of the game
-    var players = [Player]()
+    private var players = [Player]()
     
     //func to add players in the players array
     func addPlayer(name:String) {

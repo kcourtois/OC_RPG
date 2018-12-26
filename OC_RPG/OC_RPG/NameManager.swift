@@ -10,7 +10,7 @@ import Foundation
 
 class NameManager {
     //Stores all the names during the game
-    var names = [String]()
+    private var names = [String]()
     
     //Checks if the name given is not taken and is valid
     func isNameValid(name:String) -> String {
