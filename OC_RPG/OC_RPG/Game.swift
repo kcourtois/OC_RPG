@@ -14,15 +14,15 @@ class Game {
     
     let playerManager:PlayerManager = PlayerManager()
     let nameManager:NameManager = NameManager()
+    //Sets the number of players in the game
+    let maxPlayers:Int = 2
 
     func play(){
         print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely ! \n\n")
         
-        playerManager.addPlayer(name: askName(askPhrase: "So, what's your name Player \(playerManager.getNumberOfPlayers()+1) ?"))
-        
-        print("Now, for an epic battle, you need a great opponent.\n")
-        
-        playerManager.addPlayer(name: askName(askPhrase: "How should I call you, Player \(playerManager.getNumberOfPlayers()+1) ?"))
+        for _ in 0..<maxPlayers {
+            playerManager.addPlayer(name: askName(askPhrase: "What's your name Player \(playerManager.getNumberOfPlayers()+1) ?"))
+        }
         
         print("\nAwesome ! Now that you are all here, why don't you take some time to build a team ? \n")
         print("You have to select 3 characters. I will ask you what class you want to pick and what is your character's name. Let's start ! \n")
@@ -73,7 +73,7 @@ class Game {
                     if yesNoInput() {
                         //return name picked and register it in nameManager
                         nameManager.registerName(name: userName)
-                        return userInput
+                        return userName
                     }
                 }
                 else{
