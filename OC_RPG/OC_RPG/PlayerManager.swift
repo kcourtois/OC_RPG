@@ -11,20 +11,55 @@ import Foundation
 class PlayerManager {
     
     //Stores the players of the game
-    private var players = [Player]()
+    private var players:[Player]
+    //Number of the player that begins the game
+    private var beginNumber:Int
+    //number that will be increased to get next player
+    private var nbNext:Int
     
-    //func to add players in the players array
+    init() {
+        players = [Player]()
+        beginNumber = 0
+        nbNext = 0
+    }
+    
+    //playerNumber will be used to get the player index in the players array
+    var playerNumber:Int {
+        return (beginNumber + nbNext) % players.count
+    }
+    
+    //adds a player in the players array
     func addPlayer(name:String) {
         players.append(Player(name: name))
     }
     
-    //func to access player1 data
-    func getPlayer1() -> Player {
-        return players[0]
+    //returns the number of players in the game
+    func getNumberOfPlayers() -> Int {
+        return players.count
     }
     
-    //func to access player2 data
-    func getPlayer2() -> Player {
-        return players[1]
+    //returns current player
+    func getCurrentPlayer() -> Player {
+        return players[playerNumber]
+    }
+    
+    //increase nbNext to select the next player
+    func nextPlayer() {
+        nbNext += 1
+    }
+    
+    //returns a string formated that containes players names and team compositions
+    func recapPlayersTeam() -> String {
+        var output:String = ""
+        for player in players {
+            output += player.name + ", you have : \n" + player.printTeam() + "\n"
+        }
+        return output
+    }
+    
+    //sets the beginNumber after all players were added
+    func pickFirstPlayer() {
+        beginNumber = Int.random(in: 0..<players.count)
+        nbNext = 0
     }
 }

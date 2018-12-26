@@ -18,49 +18,41 @@ class Game {
     func play(){
         print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely ! \n\n")
         
-        playerManager.addPlayer(name: askName(askPhrase: "So, what's your name Player 1 ?"))
+        playerManager.addPlayer(name: askName(askPhrase: "So, what's your name Player \(playerManager.getNumberOfPlayers()+1) ?"))
         
         print("Now, for an epic battle, you need a great opponent.\n")
         
-        playerManager.addPlayer(name: askName(askPhrase: "How should I call you, Player 2 ?"))
+        playerManager.addPlayer(name: askName(askPhrase: "How should I call you, Player \(playerManager.getNumberOfPlayers()+1) ?"))
         
-        print("\nAwesome ! Now that you are both here, why don't you take some time to build a team ? \n")
-        print("You have to select 3 characters. I will ask you what class you want to pick and what is your character's name. When we're done with you \(playerManager.getPlayer1().name), it will be \(playerManager.getPlayer2().name)'s turn. Let's start ! \n")
+        print("\nAwesome ! Now that you are all here, why don't you take some time to build a team ? \n")
+        print("You have to select 3 characters. I will ask you what class you want to pick and what is your character's name. Let's start ! \n")
         
-        //PLAYER 1 TEAM SELECTION
-        playerManager.getPlayer1().team.append(createCharacter())
-        print("\nNow it's time to pick your second character.\n")
-        playerManager.getPlayer1().team.append(createCharacter())
-        print("\nLet's go for the last one !\n")
-        playerManager.getPlayer1().team.append(createCharacter())
-        
-        //PLAYER 2 TEAM SELECTION
-        print("\nPerfect, now it's your turn \(playerManager.getPlayer2().name).\n")
-        playerManager.getPlayer2().team.append(createCharacter())
-        print("\nNow it's time to pick your second character.\n")
-        playerManager.getPlayer2().team.append(createCharacter())
-        print("\nLet's go for the last one !\n")
-        playerManager.getPlayer2().team.append(createCharacter())
+        //Player team selection
+        for _ in 0..<playerManager.getNumberOfPlayers() {
+            print("\(playerManager.getCurrentPlayer().name), you can build your team.\n")
+            playerManager.getCurrentPlayer().team.append(createCharacter())
+            print("\nNow it's time to pick your second character.\n")
+            playerManager.getCurrentPlayer().team.append(createCharacter())
+            print("\nLet's go for the last one !\n")
+            playerManager.getCurrentPlayer().team.append(createCharacter())
+            playerManager.nextPlayer()
+        }
         
         //RECAP
         print("\nNow it's time for a quick recap. Here's what your team are made of.\n")
-        print("\(playerManager.getPlayer1().name), you have : \n\(playerManager.getPlayer1().printTeam())\n")
-        print("\(playerManager.getPlayer2().name), you have : \n\(playerManager.getPlayer2().printTeam())\n")
+        print(playerManager.recapPlayersTeam())
         
-        print("\nOk. Here's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. Hope you guys are ready, cause here comes the battle !\n")
+        print("\nOk. Here's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. ")
         
-        print("We will do a Heads or Tails to know who should start. If it's heads, \(playerManager.getPlayer1().name) starts. If it's tails, \(playerManager.getPlayer2().name) will start. Ready ? Here comes the throw... And...\n\n")
-        
-        //Create a fight object. Methods for the fight will be called from here
-        let fight = Fight()
-        
-        //fight.beginNumber will do the heads or tails. It is a random value, 0 is player1 and 1 is player2.
-        if(fight.beginNumber == 0){
-            print("Heads ! \(playerManager.getPlayer1().name), you can begin the fight !")
+        print("Here's the playing order: ")
+        //picks a random player that will start
+        playerManager.pickFirstPlayer()
+        //loop through the players to get their names
+        for _ in 0..<playerManager.getNumberOfPlayers() {
+            print("\(playerManager.getCurrentPlayer().name)")
+            playerManager.nextPlayer()
         }
-        else {
-            print("Tails ! \(playerManager.getPlayer2().name), you can begin the fight !")
-        }
+        print("Hope you guys are ready, cause here comes the battle !\n\n")
     }
     
     //function to ask a name.
