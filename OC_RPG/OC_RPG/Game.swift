@@ -12,10 +12,10 @@ import Foundation
 //Everything that happens in the game will be handled here.
 class Game {
     
-    let playerManager:PlayerManager = PlayerManager()
-    let nameManager:NameManager = NameManager()
+    private let playerManager:PlayerManager = PlayerManager()
+    private let nameManager:NameManager = NameManager()
     //Sets the number of players in the game
-    let maxPlayers:Int = 2
+    private let maxPlayers:Int = 2
 
     func play(){
         print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely ! \n\n")

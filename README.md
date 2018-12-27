@@ -1,3 +1,5 @@
+#OC RPG
+
 OC RPG is a small RPG that runs in the terminal.
 This is the 3rd project of the OpenClassRooms iOS course.
 
@@ -9,9 +11,7 @@ The winner of the duel is the first player that takes down all the opponent's un
 
 There are 4 types of units for now :
 
-° Fighter: The basic attacker. A good warrior !  
-° Mage: His gift ? Heal his fellow partners !  
-° Colossus: Tough and mighty, but he will not hurt you.  
-° Dwarf: His axe will hit you hard, but his life bar is as short as his height.  
-
-
+- Fighter: The basic attacker. A good warrior !  
+- Mage: His gift ? Heal his fellow partners !  
+- Colossus: Tough and mighty, but he will not hurt you.  
+- Dwarf: His axe will hit you hard, but his life bar is as short as his height.  
