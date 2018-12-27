@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+//Name Manager handles all the interactions with names during the game.
+//It will check if a name is valid and store it so they can be unique
 class NameManager {
     //Stores all the names during the game
     private var names = [String]()

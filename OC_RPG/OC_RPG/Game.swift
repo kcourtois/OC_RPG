@@ -38,11 +38,7 @@ class Game {
             playerManager.nextPlayer()
         }
         
-        //RECAP
-        print("\nNow it's time for a quick recap. Here's what your team are made of.\n")
-        print(playerManager.recapPlayersTeam())
-        
-        print("\nOk. Here's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. ")
+        print("\nHere's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. ")
         
         print("Here's the playing order: ")
         //picks a random player that will start
@@ -191,9 +187,6 @@ class Game {
         playerManager.getCurrentPlayer().team.append(Fighter(name: "Snow"))
         playerManager.getCurrentPlayer().team.append(Mage(name: "Marwyn"))
         playerManager.getCurrentPlayer().team.append(Colossus(name: "Hodor"))
-        
-        //Recap players team
-        print(playerManager.recapPlayersTeam())
         
         print("Here's the playing order: ")
         //picks a random player that will start

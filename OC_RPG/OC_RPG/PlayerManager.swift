@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//Player manager will hold all the players of the game and will handle the access to them
 class PlayerManager {
     
     //Stores the players of the game
@@ -16,16 +16,15 @@ class PlayerManager {
     private var beginNumber:Int
     //number that will be increased to get next player
     private var nbNext:Int
-    
+    //playerNumber will be used to get the player index in the players array
+    private var playerNumber:Int {
+        return (beginNumber + nbNext) % players.count
+    }
+    //Initialization of the vars
     init() {
         players = [Player]()
         beginNumber = 0
         nbNext = 0
-    }
-    
-    //playerNumber will be used to get the player index in the players array
-    var playerNumber:Int {
-        return (beginNumber + nbNext) % players.count
     }
     
     //adds a player in the players array
@@ -51,8 +50,9 @@ class PlayerManager {
     //returns a string formated that containes players names and team compositions
     func recapPlayersTeam() -> String {
         var output:String = ""
-        for player in players {
-            output += player.name + ", you have : \n" + player.printTeam() + "\n"
+        for _ in 0..<getNumberOfPlayers() {
+            output += getCurrentPlayer().name + "'s team : \n" + getCurrentPlayer().printTeam() + "\n"
+            nextPlayer()
         }
         return output
     }

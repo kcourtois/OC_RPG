@@ -23,7 +23,7 @@ class Player {
     func printTeam() -> String {
         var output:String = ""
         for char in team {
-            output += "\(char.name), \(char.className).\n"
+            output += "\(char.name), \(char.className). Atk: \(char.weapon.power) HP: \(char.currentHp)/\(char.maxHp)\n"
         }
         return output
     }
