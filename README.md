@@ -1,4 +1,4 @@
-#OC RPG
+# OC RPG
 
 OC RPG is a small RPG that runs in the terminal.
 This is the 3rd project of the OpenClassRooms iOS course.
