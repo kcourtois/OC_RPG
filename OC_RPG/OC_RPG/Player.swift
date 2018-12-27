@@ -27,4 +27,22 @@ class Player {
         }
         return output
     }
+    
+    //Returns true if there is at least one character alive in the player's team
+    func isAlive() -> Bool {
+        var nbCharAlive:Int = 0
+        for char in team {
+            if char.isAlive {
+                nbCharAlive += 1
+            }
+        }
+        //If there is a character alive in the team, return true
+        if nbCharAlive > 0 {
+            return true
+        }
+        //Else return false
+        else {
+            return false
+        }
+    }
 }
