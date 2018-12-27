@@ -89,7 +89,7 @@ class Game {
         return "error"
     }
     
-    //function to ask a the user to input yes or no. Returns a boolean.
+    //function to ask a user to input yes or no. Returns a boolean.
     private func yesNoInput() -> Bool {
         if let yesNo = readLine(){
             //Confirmation switch
@@ -175,5 +175,34 @@ class Game {
             return Fighter(name: charName)
         }
         
+    }
+    
+    func test() {
+        //Adds 2 test players
+        playerManager.addPlayer(name: "Kevin")
+        playerManager.addPlayer(name: "Xavier")
+        //Create p1 team
+        playerManager.getCurrentPlayer().team.append(Fighter(name: "Aragorn"))
+        playerManager.getCurrentPlayer().team.append(Mage(name: "Gandalf"))
+        playerManager.getCurrentPlayer().team.append(Dwarf(name: "Gimli"))
+        //Pick next player
+        playerManager.nextPlayer()
+        //Create p2 team
+        playerManager.getCurrentPlayer().team.append(Fighter(name: "Snow"))
+        playerManager.getCurrentPlayer().team.append(Mage(name: "Marwyn"))
+        playerManager.getCurrentPlayer().team.append(Colossus(name: "Hodor"))
+        
+        //Recap players team
+        print(playerManager.recapPlayersTeam())
+        
+        print("Here's the playing order: ")
+        //picks a random player that will start
+        playerManager.pickFirstPlayer()
+        //loop through the players to get their names
+        for _ in 0..<playerManager.getNumberOfPlayers() {
+            print("\(playerManager.getCurrentPlayer().name)")
+            playerManager.nextPlayer()
+        }
+        print("Hope you guys are ready, cause here comes the battle !\n\n")
     }
 }
