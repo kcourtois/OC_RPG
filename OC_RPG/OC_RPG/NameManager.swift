@@ -14,34 +14,16 @@ class NameManager {
     private var names = [String]()
     
     //Checks if the name given is not taken and is valid
-    func isNameValid(name:String) -> String {
-        
-        //Bool to check all conditions are ok
-        var nameValid:Bool
-        
+    func formatName(name:String) -> String? {
         //Format name parameters to match the string array
         let userName = name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines).capitalized
 
         //Check name size
-        if checkNameSize(name: userName) {
-            nameValid = true
-        }
-        else {
-            nameValid = false
-        }
-        
-        //Check names array to know if someone took it
-        for n in names {
-            if userName == n {
-                nameValid = false
-            }
-        }
-        
-        if nameValid {
+        if checkNameSize(name: userName) && names.contains(name) {
             return userName
         }
         else {
-            return "wrongName"
+            return nil
         }
     }
     

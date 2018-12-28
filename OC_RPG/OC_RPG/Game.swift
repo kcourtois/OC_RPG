@@ -60,8 +60,7 @@ class Game {
             print(askPhrase)
             //Get input from the user
             if let userInput = readLine(){
-                let userName = nameManager.isNameValid(name: userInput)
-                if(userName != "wrongName"){
+                if let userName = nameManager.formatName(name: userInput) {
                     //Ask confirmation
                     print("\n\(userName), that's it ? (y/n)")
                     //If user says yes
