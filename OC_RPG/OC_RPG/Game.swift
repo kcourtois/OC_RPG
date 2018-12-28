@@ -40,8 +40,6 @@ class Game {
         print("\nHere's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. ")
         
         print("Here's the playing order: ")
-        //picks a random player that will start
-        playerManager.pickFirstPlayer()
         //loop through the players to get their names
         for _ in 0..<playerManager.getNumberOfPlayers() {
             print("\(playerManager.getCurrentPlayer().name)")
@@ -192,8 +190,6 @@ class Game {
         playerManager.getCurrentPlayer().team.append(Colossus(name: "Hodor"))
         
         print("Here's the playing order: ")
-        //picks a random player that will start
-        playerManager.pickFirstPlayer()
         //loop through the players to get their names
         for _ in 0..<playerManager.getNumberOfPlayers() {
             print("\(playerManager.getCurrentPlayer().name)")

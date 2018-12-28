@@ -24,9 +24,12 @@ class PlayerManager {
     private var nextPlayerNumber:Int {
         return (beginNumber + nbNext+1) % players.count
     }
+    //Bool to know if we picked who plays first
+    var firstPlayerPicked:Bool
     
     //Initialization of the vars
     init() {
+        firstPlayerPicked = false
         players = [Player]()
         beginNumber = 0
         nbNext = 0
@@ -55,6 +58,11 @@ class PlayerManager {
     
     //returns current player
     func getCurrentPlayer() -> Player {
+        //If we didn't pick who will play first, we do it now
+        if(!firstPlayerPicked){
+            pickFirstPlayer()
+            firstPlayerPicked = true
+        }
         return players[playerNumber]
     }
     

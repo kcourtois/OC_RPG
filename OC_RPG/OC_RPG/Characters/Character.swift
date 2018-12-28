@@ -15,12 +15,7 @@ class Character {
     let weapon:Weapon
     let className:String
     var isAlive:Bool {
-        if currentHp > 0 {
-            return true
-        }
-        else {
-            return false
-        }
+        return currentHp > 0
     }
     
     init(name:String, className:String, maxHp:Int, weapon:Weapon) {
