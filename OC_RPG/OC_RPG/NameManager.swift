@@ -47,19 +47,14 @@ class NameManager {
     
     //Check if name is not too short or too big
     private func checkNameSize(name:String) -> Bool {
-        //If name size is in the range from 3 to 30 letters
-        if name.count <= 30 && name.count >= 3 {
-            //Then size is ok
-            return true
-        }
-        else {
-            //Else it's not
-            return false
-        }
+        //If name size is in the range from 3 to 30 letters, returns true. else, returns false
+        return name.count <= 30 && name.count >= 3
     }
     
-    //Register a name by adding it to name array
-    func registerName(name:String) {
-        names.append(name)
+    //Releases a name that will not be used
+    func nameNotPicked(name:String){
+        if let index = names.index(of: name) {
+            names.remove(at: index)
+        }
     }
 }

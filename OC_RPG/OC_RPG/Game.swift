@@ -30,11 +30,10 @@ class Game {
         //Player team selection
         for _ in 0..<playerManager.getNumberOfPlayers() {
             print("\(playerManager.getCurrentPlayer().name), you can build your team.\n")
-            playerManager.getCurrentPlayer().team.append(createCharacter())
-            print("\nNow it's time to pick your second character.\n")
-            playerManager.getCurrentPlayer().team.append(createCharacter())
-            print("\nLet's go for the last one !\n")
-            playerManager.getCurrentPlayer().team.append(createCharacter())
+            //For loop to create all characters of player's team
+            for _ in 0..<playerManager.getCurrentPlayer().maxCharInTeam {
+                playerManager.getCurrentPlayer().team.append(createCharacter())
+            }
             playerManager.nextPlayer()
         }
         
@@ -67,9 +66,13 @@ class Game {
                     print("\n\(userName), that's it ? (y/n)")
                     //If user says yes
                     if yesNoInput() {
-                        //return name picked and register it in nameManager
-                        nameManager.registerName(name: userName)
+                        //name is picked
                         return userName
+                    }
+                    else {
+                        //notify nameManager that name was not picked
+                        nameManager.nameNotPicked(name: userName)
+                        goOn = false
                     }
                 }
                 else{
@@ -115,6 +118,7 @@ class Game {
         var className:String = ""
         
         while !goOn {
+            print("\nNow it's time to pick a new character.\n")
             print("So what will you pick ?\n")
             print("1 - Fighter: The basic attacker. A good warrior ! 🤺\n")
             print("2 - Mage: His gift ? Heal his fellow partners ! 🧙‍♂️\n")
@@ -197,5 +201,33 @@ class Game {
             playerManager.nextPlayer()
         }
         print("Hope you guys are ready, cause here comes the battle !\n\n")
+        
+        //Battle loop
+        while playerManager.getNumberOfPlayersAlive() > 1 {
+            print("TEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
+            print(playerManager.recapPlayersTeam())
+            print("\(playerManager.getCurrentPlayer().name), who will fight for this turn (1 / 2 / 3) ?")
+            var goOn:Bool = false
+            while !goOn {
+                //Get user input
+                if let userInput = readLine(){
+                    switch userInput {
+                    case "1":
+                        break
+                    case "2":
+                        break
+                    case "3":
+                        break
+                    default:
+                        print("\nNope, can't pick that. Try again ! \n")
+                        goOn = false
+                    }
+                }
+                else {
+                    print("\nNope, can't pick that. Try again ! \n")
+                    goOn = false
+                }
+            }
+        }
     }
 }

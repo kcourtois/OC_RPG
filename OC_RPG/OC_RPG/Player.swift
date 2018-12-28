@@ -13,17 +13,21 @@ class Player {
     let name:String
     //Team will be the 3 characters created by the player.
     var team:[Character]
+    var maxCharInTeam:Int
     
     init(name:String) {
         self.name = name
         self.team = []
+        self.maxCharInTeam = 3
     }
     
     //Returns a formated string with all the characters of the team, with their class and name.
     func printTeam() -> String {
         var output:String = ""
+        var num:Int = 1
         for char in team {
-            output += "\(char.name), \(char.className). Atk: \(char.weapon.power) HP: \(char.currentHp)/\(char.maxHp)\n"
+            output += "\(num). \(char.name), \(char.className). Atk: \(char.weapon.power) HP: \(char.currentHp)/\(char.maxHp)\n"
+            num += 1
         }
         return output
     }

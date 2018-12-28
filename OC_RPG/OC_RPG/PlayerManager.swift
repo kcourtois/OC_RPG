@@ -20,6 +20,11 @@ class PlayerManager {
     private var playerNumber:Int {
         return (beginNumber + nbNext) % players.count
     }
+    //nextPlayerNumber will be used to get the next player index in the players array
+    private var nextPlayerNumber:Int {
+        return (beginNumber + nbNext+1) % players.count
+    }
+    
     //Initialization of the vars
     init() {
         players = [Player]()
@@ -37,9 +42,25 @@ class PlayerManager {
         return players.count
     }
     
+    //Returns number of players alive
+    func getNumberOfPlayersAlive() -> Int {
+        var nbPlayersAlive:Int = 0
+        for player in players {
+            if player.isAlive() {
+                nbPlayersAlive += 1
+            }
+        }
+        return nbPlayersAlive
+    }
+    
     //returns current player
     func getCurrentPlayer() -> Player {
         return players[playerNumber]
+    }
+    
+    //returns next player
+    func getNextPlayer() -> Player {
+        return players[nextPlayerNumber]
     }
     
     //increase nbNext to select the next player
