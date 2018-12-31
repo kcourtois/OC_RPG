@@ -1,5 +1,5 @@
 //
-//  Mace.swift
+//  Axe.swift
 //  OC_RPG
 //
 //  Created by Kévin Courtois on 24/12/2018.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Mace: Weapon {
+class AdvancedAxe: Weapon {
     init() {
-        super.init(name: "Advanced Mace", minPower: 5, maxPower: 5)
+        super.init(name: "Advanced Axe", minPower: 15, maxPower: 30)
     }
 }

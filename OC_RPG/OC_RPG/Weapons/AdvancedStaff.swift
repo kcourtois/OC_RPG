@@ -9,8 +9,8 @@
 import Foundation
 
 //Staff are healing weapon so damage are negative
-class Staff: Weapon {
+class AdvancedStaff: Weapon {
     init() {
-        super.init(name: "Advanced Staff", minPower: -10, maxPower: -10)
+        super.init(name: "Advanced Staff", minPower: -20, maxPower: -10)
     }
 }

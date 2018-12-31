@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Mace: Weapon {
+class AdvancedMace: Weapon {
     init() {
-        super.init(name: "Advanced Mace", minPower: 5, maxPower: 5)
+        super.init(name: "Advanced Mace", minPower: 5, maxPower: 15)
     }
 }

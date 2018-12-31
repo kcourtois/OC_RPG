@@ -52,37 +52,32 @@ class Game {
     //askPhrase is a parameter that helps the function to be less
     //repetitive when asking multiple names in a row.
     private func askName(askPhrase:String) -> String {
-        //GoOn is a bool used to keep asking the player name if we didn't get it correctly.
-        var goOn:Bool = false
-        while !goOn {
-            print(askPhrase)
-            //Get input from the user
-            if let userInput = readLine(){
-                if let userName = nameManager.formatName(name: userInput) {
-                    //Ask confirmation
-                    print("\n\(userName), that's it ? (y/n)")
-                    //If user says yes
-                    if yesNoInput() {
-                        //name is picked
-                        return userName
-                    }
-                    else {
-                        //notify nameManager that name was not picked
-                        nameManager.nameNotPicked(name: userName)
-                        goOn = false
-                    }
+        print(askPhrase)
+        //Get input from the user
+        if let userInput = readLine(){
+            if let userName = nameManager.formatName(name: userInput) {
+                //Ask confirmation
+                print("\n\(userName), that's it ? (y/n)")
+                //If user says yes
+                if yesNoInput() {
+                    //name is picked
+                    return userName
                 }
-                else{
-                    print("\nNope, this name is not available !\n")
-                    goOn = false
+                else {
+                    //notify nameManager that name was not picked
+                    nameManager.nameNotPicked(name: userName)
+                    return askName(askPhrase: askPhrase)
                 }
             }
-            else {
-                print("\nHum... I guess i did not hear you well !\n")
-                goOn = false
+            else{
+                print("\nNope, this name is not available !\n")
+                return askName(askPhrase: askPhrase)
             }
         }
-        return "error"
+        else {
+            print("\nHum... I guess i did not hear you well !\n")
+            return askName(askPhrase: askPhrase)
+        }
     }
     
     //function to ask a user to input yes or no. Returns a boolean.
@@ -110,68 +105,33 @@ class Game {
     //Func for character creation. Ask the user for the class and name of his character and
     //returns a character with this datas.
     private func createCharacter() -> Character {
-        //GoOn is a bool used to keep asking the player name if we didn't get it correctly.
-        var goOn:Bool = false
-        var className:String = ""
-        
-        while !goOn {
-            print("\nNow it's time to pick a new character.\n")
-            print("So what will you pick ?\n")
-            print("1 - Fighter: The basic attacker. A good warrior ! 🤺\n")
-            print("2 - Mage: His gift ? Heal his fellow partners ! 🧙‍♂️\n")
-            print("3 - Colossus: Tough and mighty, but he will not hurt you. 🛡\n")
-            print("4 - Dwarf: His axe will hit you hard, but his life bar is as short as his height. 🔪\n")
-            //Get input from the user
-            if let userInput = readLine(){
-                switch userInput {
-                case "1":
-                    className = "Fighter"
-                    print("\n\(className), that's what you want ? (y/n) \n")
-                    //Ask confirmation
-                    goOn = yesNoInput()
-                case "2":
-                    className = "Mage"
-                    print("\n\(className), that's what you want ? (y/n) \n")
-                    //Ask confirmation
-                    goOn = yesNoInput()
-                case "3":
-                    className = "Colossus"
-                    print("\n\(className), that's what you want ? (y/n) \n")
-                    //Ask confirmation
-                    goOn = yesNoInput()
-                case "4":
-                    className = "Dwarf"
-                    print("\n\(className), that's what you want ? (y/n) \n")
-                    //Ask confirmation
-                    goOn = yesNoInput()
-                default:
-                    print("\nNope, can't pick that. Try again ! \n")
-                    goOn = false
-                }
-            }
-            else {
+        print("\nNow it's time to pick a new character.\n")
+        let charName:String = askName(askPhrase: "How do you want to name him/her ?")
+        print("What class will you pick ?\n")
+        print("1 - Fighter: The basic attacker. A good warrior ! 🤺\n")
+        print("2 - Mage: His gift ? Heal his fellow partners ! 🧙‍♂️\n")
+        print("3 - Colossus: Tough and mighty, but he will not hurt you. 🛡\n")
+        print("4 - Dwarf: His axe will hit you hard, but his life bar is as short as his height. 🔪\n")
+        //Get input from the user
+        if let userInput = readLine(){
+            switch userInput {
+            case "1":
+                return Fighter(name: charName)
+            case "2":
+                return Mage(name: charName)
+            case "3":
+                return Colossus(name: charName)
+            case "4":
+                return Dwarf(name: charName)
+            default:
                 print("\nNope, can't pick that. Try again ! \n")
-                goOn = false
+                return createCharacter()
             }
         }
-        
-        //Ask character's name
-        let charName:String = askName(askPhrase: "What will be your character's name ?")
-        
-        //Return the right character
-        switch className {
-        case "Fighter":
-            return Fighter(name: charName)
-        case "Mage":
-            return Mage(name: charName)
-        case "Colossus":
-            return Colossus(name: charName)
-        case "Dwarf":
-            return Dwarf(name: charName)
-        default:
-            return Fighter(name: charName)
+        else {
+            print("\nNope, can't pick that. Try again ! \n")
+            return createCharacter()
         }
-        
     }
     
     func test() {
