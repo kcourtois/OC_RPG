@@ -1,5 +1,5 @@
 //
-//  Sword.swift
+//  Axe.swift
 //  OC_RPG
 //
 //  Created by Kévin Courtois on 24/12/2018.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Sword: Weapon {
+class WoodenAxe: Weapon {
     init() {
-        super.init(name: "Advanced Sword", minPower: 10, maxPower: 10)
+        super.init(name: "Wooden Axe", power: 20)
     }
 }

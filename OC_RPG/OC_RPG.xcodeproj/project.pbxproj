@@ -19,14 +19,10 @@
 		9EB12E0021CC09B300C53E6B /* NameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12DFF21CC09B300C53E6B /* NameManager.swift */; };
 		9EB12E0221CC09D600C53E6B /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0121CC09D600C53E6B /* PlayerManager.swift */; };
 		9EB12E0421CC0A7E00C53E6B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0321CC0A7E00C53E6B /* Weapon.swift */; };
-		9EB12E0621D062AA00C53E6B /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0521D062AA00C53E6B /* Staff.swift */; };
-		9EB12E0A21D062D900C53E6B /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0921D062D900C53E6B /* Axe.swift */; };
-		9EB12E0C21D062EA00C53E6B /* Sword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0B21D062EA00C53E6B /* Sword.swift */; };
-		9EB12E0E21D0633900C53E6B /* Mace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0D21D0633900C53E6B /* Mace.swift */; };
-		9EB12E1321DA11C400C53E6B /* AdvancedSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0F21DA11C300C53E6B /* AdvancedSword.swift */; };
-		9EB12E1421DA11C400C53E6B /* AdvancedAxe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E1021DA11C300C53E6B /* AdvancedAxe.swift */; };
-		9EB12E1521DA11C400C53E6B /* AdvancedStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E1121DA11C300C53E6B /* AdvancedStaff.swift */; };
-		9EB12E1621DA11C400C53E6B /* AdvancedMace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E1221DA11C300C53E6B /* AdvancedMace.swift */; };
+		9EB12E1D21DCC64400C53E6B /* WoodenSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E1C21DCC64400C53E6B /* WoodenSword.swift */; };
+		9EB12E1F21DCC64F00C53E6B /* WoodenAxe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E1E21DCC64F00C53E6B /* WoodenAxe.swift */; };
+		9EB12E2121DCC65900C53E6B /* WoodenMace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2021DCC65900C53E6B /* WoodenMace.swift */; };
+		9EB12E2321DCC66600C53E6B /* WoodenStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2221DCC66600C53E6B /* WoodenStaff.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,14 +51,10 @@
 		9EB12DFF21CC09B300C53E6B /* NameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameManager.swift; sourceTree = "<group>"; };
 		9EB12E0121CC09D600C53E6B /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		9EB12E0321CC0A7E00C53E6B /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
-		9EB12E0521D062AA00C53E6B /* Staff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
-		9EB12E0921D062D900C53E6B /* Axe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
-		9EB12E0B21D062EA00C53E6B /* Sword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword.swift; sourceTree = "<group>"; };
-		9EB12E0D21D0633900C53E6B /* Mace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mace.swift; sourceTree = "<group>"; };
-		9EB12E0F21DA11C300C53E6B /* AdvancedSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedSword.swift; sourceTree = "<group>"; };
-		9EB12E1021DA11C300C53E6B /* AdvancedAxe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedAxe.swift; sourceTree = "<group>"; };
-		9EB12E1121DA11C300C53E6B /* AdvancedStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedStaff.swift; sourceTree = "<group>"; };
-		9EB12E1221DA11C300C53E6B /* AdvancedMace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedMace.swift; sourceTree = "<group>"; };
+		9EB12E1C21DCC64400C53E6B /* WoodenSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenSword.swift; sourceTree = "<group>"; };
+		9EB12E1E21DCC64F00C53E6B /* WoodenAxe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenAxe.swift; sourceTree = "<group>"; };
+		9EB12E2021DCC65900C53E6B /* WoodenMace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenMace.swift; sourceTree = "<group>"; };
+		9EB12E2221DCC66600C53E6B /* WoodenStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenStaff.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,17 +114,45 @@
 		9EB12DFE21CC08F700C53E6B /* Weapons */ = {
 			isa = PBXGroup;
 			children = (
-				9EB12E1021DA11C300C53E6B /* AdvancedAxe.swift */,
-				9EB12E1221DA11C300C53E6B /* AdvancedMace.swift */,
-				9EB12E1121DA11C300C53E6B /* AdvancedStaff.swift */,
-				9EB12E0F21DA11C300C53E6B /* AdvancedSword.swift */,
+				9EB12E1B21DCC4E300C53E6B /* Staffs */,
+				9EB12E1A21DCC4D700C53E6B /* Maces */,
+				9EB12E1921DCC4CD00C53E6B /* Axes */,
+				9EB12E1821DCC4BF00C53E6B /* Swords */,
 				9EB12E0321CC0A7E00C53E6B /* Weapon.swift */,
-				9EB12E0521D062AA00C53E6B /* Staff.swift */,
-				9EB12E0921D062D900C53E6B /* Axe.swift */,
-				9EB12E0B21D062EA00C53E6B /* Sword.swift */,
-				9EB12E0D21D0633900C53E6B /* Mace.swift */,
 			);
 			path = Weapons;
+			sourceTree = "<group>";
+		};
+		9EB12E1821DCC4BF00C53E6B /* Swords */ = {
+			isa = PBXGroup;
+			children = (
+				9EB12E1C21DCC64400C53E6B /* WoodenSword.swift */,
+			);
+			path = Swords;
+			sourceTree = "<group>";
+		};
+		9EB12E1921DCC4CD00C53E6B /* Axes */ = {
+			isa = PBXGroup;
+			children = (
+				9EB12E1E21DCC64F00C53E6B /* WoodenAxe.swift */,
+			);
+			path = Axes;
+			sourceTree = "<group>";
+		};
+		9EB12E1A21DCC4D700C53E6B /* Maces */ = {
+			isa = PBXGroup;
+			children = (
+				9EB12E2021DCC65900C53E6B /* WoodenMace.swift */,
+			);
+			path = Maces;
+			sourceTree = "<group>";
+		};
+		9EB12E1B21DCC4E300C53E6B /* Staffs */ = {
+			isa = PBXGroup;
+			children = (
+				9EB12E2221DCC66600C53E6B /* WoodenStaff.swift */,
+			);
+			path = Staffs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,25 +212,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EB12E1421DA11C400C53E6B /* AdvancedAxe.swift in Sources */,
 				9E2FD3B121C8FDB500FC2A60 /* Fight.swift in Sources */,
 				9E2FD3A921C7ED7C00FC2A60 /* Colossus.swift in Sources */,
+				9EB12E1F21DCC64F00C53E6B /* WoodenAxe.swift in Sources */,
 				9E2FD3A721C7ED6100FC2A60 /* Mage.swift in Sources */,
 				9EB12E0421CC0A7E00C53E6B /* Weapon.swift in Sources */,
-				9EB12E1621DA11C400C53E6B /* AdvancedMace.swift in Sources */,
+				9EB12E1D21DCC64400C53E6B /* WoodenSword.swift in Sources */,
 				9EB12E0021CC09B300C53E6B /* NameManager.swift in Sources */,
-				9EB12E1321DA11C400C53E6B /* AdvancedSword.swift in Sources */,
-				9EB12E0C21D062EA00C53E6B /* Sword.swift in Sources */,
 				9E2FD3AD21C815EE00FC2A60 /* Character.swift in Sources */,
 				9E2FD3A521C7ED3E00FC2A60 /* Fighter.swift in Sources */,
 				9E2FD3AB21C7ED8C00FC2A60 /* Dwarf.swift in Sources */,
-				9EB12E1521DA11C400C53E6B /* AdvancedStaff.swift in Sources */,
-				9EB12E0A21D062D900C53E6B /* Axe.swift in Sources */,
 				9E2FD39F21C7B7C000FC2A60 /* Game.swift in Sources */,
-				9EB12E0E21D0633900C53E6B /* Mace.swift in Sources */,
 				9EB12E0221CC09D600C53E6B /* PlayerManager.swift in Sources */,
+				9EB12E2321DCC66600C53E6B /* WoodenStaff.swift in Sources */,
 				9E2FD39721C7AFB900FC2A60 /* Player.swift in Sources */,
-				9EB12E0621D062AA00C53E6B /* Staff.swift in Sources */,
+				9EB12E2121DCC65900C53E6B /* WoodenMace.swift in Sources */,
 				9E2FD39021C7A85300FC2A60 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
