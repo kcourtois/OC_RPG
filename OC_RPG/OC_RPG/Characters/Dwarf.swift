@@ -10,7 +10,7 @@ import Foundation
 
 class Dwarf: Character {
     init(name:String) {
-        let basicWeapon = Axe()
+        let basicWeapon = WoodenAxe()
         super.init(name: name, className:"Dwarf", maxHp: 50, weapon: basicWeapon)
     }
 }

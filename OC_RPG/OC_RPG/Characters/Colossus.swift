@@ -10,7 +10,7 @@ import Foundation
 
 class Colossus: Character {
     init(name:String) {
-        let basicWeapon = Mace()
+        let basicWeapon = WoodenMace()
         super.init(name: name, className: "Colossus", maxHp: 200, weapon: basicWeapon)
     }
 }

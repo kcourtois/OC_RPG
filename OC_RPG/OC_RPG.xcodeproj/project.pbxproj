@@ -22,7 +22,19 @@
 		9EB12E1D21DCC64400C53E6B /* WoodenSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E1C21DCC64400C53E6B /* WoodenSword.swift */; };
 		9EB12E1F21DCC64F00C53E6B /* WoodenAxe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E1E21DCC64F00C53E6B /* WoodenAxe.swift */; };
 		9EB12E2121DCC65900C53E6B /* WoodenMace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2021DCC65900C53E6B /* WoodenMace.swift */; };
-		9EB12E2321DCC66600C53E6B /* WoodenStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2221DCC66600C53E6B /* WoodenStaff.swift */; };
+		9EB12E2B21DCCD3500C53E6B /* WoodenStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2721DCCD3500C53E6B /* WoodenStaff.swift */; };
+		9EB12E2C21DCCD3500C53E6B /* NurturerStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2821DCCD3500C53E6B /* NurturerStaff.swift */; };
+		9EB12E2D21DCCD3500C53E6B /* RainStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2921DCCD3500C53E6B /* RainStaff.swift */; };
+		9EB12E2E21DCCD3500C53E6B /* OwlStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2A21DCCD3500C53E6B /* OwlStaff.swift */; };
+		9EB12E3221DCCD4400C53E6B /* GoldenMace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E2F21DCCD4400C53E6B /* GoldenMace.swift */; };
+		9EB12E3321DCCD4400C53E6B /* CopperMace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3021DCCD4400C53E6B /* CopperMace.swift */; };
+		9EB12E3421DCCD4400C53E6B /* SilverMace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3121DCCD4400C53E6B /* SilverMace.swift */; };
+		9EB12E3821DCCD5700C53E6B /* SilverAxe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3521DCCD5700C53E6B /* SilverAxe.swift */; };
+		9EB12E3921DCCD5700C53E6B /* CopperAxe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3621DCCD5700C53E6B /* CopperAxe.swift */; };
+		9EB12E3A21DCCD5700C53E6B /* GoldenAxe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3721DCCD5700C53E6B /* GoldenAxe.swift */; };
+		9EB12E3E21DCCD6D00C53E6B /* SilverSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3B21DCCD6D00C53E6B /* SilverSword.swift */; };
+		9EB12E3F21DCCD6D00C53E6B /* GoldenSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3C21DCCD6D00C53E6B /* GoldenSword.swift */; };
+		9EB12E4021DCCD6D00C53E6B /* CopperSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3D21DCCD6D00C53E6B /* CopperSword.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,7 +66,19 @@
 		9EB12E1C21DCC64400C53E6B /* WoodenSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenSword.swift; sourceTree = "<group>"; };
 		9EB12E1E21DCC64F00C53E6B /* WoodenAxe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenAxe.swift; sourceTree = "<group>"; };
 		9EB12E2021DCC65900C53E6B /* WoodenMace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenMace.swift; sourceTree = "<group>"; };
-		9EB12E2221DCC66600C53E6B /* WoodenStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenStaff.swift; sourceTree = "<group>"; };
+		9EB12E2721DCCD3500C53E6B /* WoodenStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenStaff.swift; sourceTree = "<group>"; };
+		9EB12E2821DCCD3500C53E6B /* NurturerStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurturerStaff.swift; sourceTree = "<group>"; };
+		9EB12E2921DCCD3500C53E6B /* RainStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainStaff.swift; sourceTree = "<group>"; };
+		9EB12E2A21DCCD3500C53E6B /* OwlStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwlStaff.swift; sourceTree = "<group>"; };
+		9EB12E2F21DCCD4400C53E6B /* GoldenMace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenMace.swift; sourceTree = "<group>"; };
+		9EB12E3021DCCD4400C53E6B /* CopperMace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopperMace.swift; sourceTree = "<group>"; };
+		9EB12E3121DCCD4400C53E6B /* SilverMace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilverMace.swift; sourceTree = "<group>"; };
+		9EB12E3521DCCD5700C53E6B /* SilverAxe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilverAxe.swift; sourceTree = "<group>"; };
+		9EB12E3621DCCD5700C53E6B /* CopperAxe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopperAxe.swift; sourceTree = "<group>"; };
+		9EB12E3721DCCD5700C53E6B /* GoldenAxe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenAxe.swift; sourceTree = "<group>"; };
+		9EB12E3B21DCCD6D00C53E6B /* SilverSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilverSword.swift; sourceTree = "<group>"; };
+		9EB12E3C21DCCD6D00C53E6B /* GoldenSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSword.swift; sourceTree = "<group>"; };
+		9EB12E3D21DCCD6D00C53E6B /* CopperSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopperSword.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +138,7 @@
 		9EB12DFE21CC08F700C53E6B /* Weapons */ = {
 			isa = PBXGroup;
 			children = (
-				9EB12E1B21DCC4E300C53E6B /* Staffs */,
+				9EB12E2621DCCD1300C53E6B /* Staves */,
 				9EB12E1A21DCC4D700C53E6B /* Maces */,
 				9EB12E1921DCC4CD00C53E6B /* Axes */,
 				9EB12E1821DCC4BF00C53E6B /* Swords */,
@@ -126,6 +150,9 @@
 		9EB12E1821DCC4BF00C53E6B /* Swords */ = {
 			isa = PBXGroup;
 			children = (
+				9EB12E3D21DCCD6D00C53E6B /* CopperSword.swift */,
+				9EB12E3C21DCCD6D00C53E6B /* GoldenSword.swift */,
+				9EB12E3B21DCCD6D00C53E6B /* SilverSword.swift */,
 				9EB12E1C21DCC64400C53E6B /* WoodenSword.swift */,
 			);
 			path = Swords;
@@ -134,6 +161,9 @@
 		9EB12E1921DCC4CD00C53E6B /* Axes */ = {
 			isa = PBXGroup;
 			children = (
+				9EB12E3621DCCD5700C53E6B /* CopperAxe.swift */,
+				9EB12E3721DCCD5700C53E6B /* GoldenAxe.swift */,
+				9EB12E3521DCCD5700C53E6B /* SilverAxe.swift */,
 				9EB12E1E21DCC64F00C53E6B /* WoodenAxe.swift */,
 			);
 			path = Axes;
@@ -142,17 +172,23 @@
 		9EB12E1A21DCC4D700C53E6B /* Maces */ = {
 			isa = PBXGroup;
 			children = (
+				9EB12E3021DCCD4400C53E6B /* CopperMace.swift */,
+				9EB12E2F21DCCD4400C53E6B /* GoldenMace.swift */,
+				9EB12E3121DCCD4400C53E6B /* SilverMace.swift */,
 				9EB12E2021DCC65900C53E6B /* WoodenMace.swift */,
 			);
 			path = Maces;
 			sourceTree = "<group>";
 		};
-		9EB12E1B21DCC4E300C53E6B /* Staffs */ = {
+		9EB12E2621DCCD1300C53E6B /* Staves */ = {
 			isa = PBXGroup;
 			children = (
-				9EB12E2221DCC66600C53E6B /* WoodenStaff.swift */,
+				9EB12E2821DCCD3500C53E6B /* NurturerStaff.swift */,
+				9EB12E2A21DCCD3500C53E6B /* OwlStaff.swift */,
+				9EB12E2921DCCD3500C53E6B /* RainStaff.swift */,
+				9EB12E2721DCCD3500C53E6B /* WoodenStaff.swift */,
 			);
-			path = Staffs;
+			path = Staves;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,21 +249,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E2FD3B121C8FDB500FC2A60 /* Fight.swift in Sources */,
+				9EB12E3A21DCCD5700C53E6B /* GoldenAxe.swift in Sources */,
 				9E2FD3A921C7ED7C00FC2A60 /* Colossus.swift in Sources */,
 				9EB12E1F21DCC64F00C53E6B /* WoodenAxe.swift in Sources */,
 				9E2FD3A721C7ED6100FC2A60 /* Mage.swift in Sources */,
 				9EB12E0421CC0A7E00C53E6B /* Weapon.swift in Sources */,
 				9EB12E1D21DCC64400C53E6B /* WoodenSword.swift in Sources */,
+				9EB12E3221DCCD4400C53E6B /* GoldenMace.swift in Sources */,
+				9EB12E3F21DCCD6D00C53E6B /* GoldenSword.swift in Sources */,
 				9EB12E0021CC09B300C53E6B /* NameManager.swift in Sources */,
+				9EB12E3421DCCD4400C53E6B /* SilverMace.swift in Sources */,
 				9E2FD3AD21C815EE00FC2A60 /* Character.swift in Sources */,
 				9E2FD3A521C7ED3E00FC2A60 /* Fighter.swift in Sources */,
+				9EB12E3E21DCCD6D00C53E6B /* SilverSword.swift in Sources */,
 				9E2FD3AB21C7ED8C00FC2A60 /* Dwarf.swift in Sources */,
+				9EB12E3321DCCD4400C53E6B /* CopperMace.swift in Sources */,
+				9EB12E4021DCCD6D00C53E6B /* CopperSword.swift in Sources */,
 				9E2FD39F21C7B7C000FC2A60 /* Game.swift in Sources */,
 				9EB12E0221CC09D600C53E6B /* PlayerManager.swift in Sources */,
-				9EB12E2321DCC66600C53E6B /* WoodenStaff.swift in Sources */,
+				9EB12E2C21DCCD3500C53E6B /* NurturerStaff.swift in Sources */,
+				9EB12E2B21DCCD3500C53E6B /* WoodenStaff.swift in Sources */,
+				9EB12E3921DCCD5700C53E6B /* CopperAxe.swift in Sources */,
+				9EB12E2D21DCCD3500C53E6B /* RainStaff.swift in Sources */,
 				9E2FD39721C7AFB900FC2A60 /* Player.swift in Sources */,
 				9EB12E2121DCC65900C53E6B /* WoodenMace.swift in Sources */,
+				9EB12E2E21DCCD3500C53E6B /* OwlStaff.swift in Sources */,
 				9E2FD39021C7A85300FC2A60 /* main.swift in Sources */,
+				9EB12E3821DCCD5700C53E6B /* SilverAxe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
