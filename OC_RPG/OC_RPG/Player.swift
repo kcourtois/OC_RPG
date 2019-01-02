@@ -11,8 +11,9 @@ import Foundation
 class Player {
     //Player's name
     let name:String
-    //Team will be the 3 characters created by the player.
+    //Team will be the characters created by the player.
     var team:[Character]
+    //Defines how many characters the player can create
     var maxCharInTeam:Int
     
     init(name:String) {
@@ -40,13 +41,7 @@ class Player {
                 nbCharAlive += 1
             }
         }
-        //If there is a character alive in the team, return true
-        if nbCharAlive > 0 {
-            return true
-        }
-        //Else return false
-        else {
-            return false
-        }
+        //If there is a character alive in the team, returns true
+        return nbCharAlive > 0
     }
 }
