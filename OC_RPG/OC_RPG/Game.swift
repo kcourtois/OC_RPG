@@ -134,10 +134,43 @@ class Game {
         }
     }
     
+    //Get player input to select a character number. Requires a player as parameter
+    func getCharNumber(player:Player) -> Int {
+        //Get user input
+        if let userInput = readLine(){
+            if let num = Int(userInput) {
+                if player.isCharNumberValid(number: num) {
+                    //returns character number picked
+                    return num
+                }
+                else {
+                    print("\nNope, can't pick that. Try again ! \n")
+                    return getCharNumber(player:player)
+                }
+            }
+            else {
+                print("\nNope, can't pick that. Try again ! \n")
+                return getCharNumber(player:player)
+            }
+        }
+        else {
+            print("\nNope, can't pick that. Try again ! \n")
+            return getCharNumber(player:player)
+        }
+    }
+
     func test() {
         //Adds 2 test players
         playerManager.addPlayer(name: "Kevin")
         playerManager.addPlayer(name: "Xavier")
+        
+        print("\n\nHere's the playing order: ")
+        //loop through the players to get their names
+        for _ in 0..<playerManager.getNumberOfPlayers() {
+            print("\(playerManager.getCurrentPlayer().name)")
+            playerManager.nextPlayer()
+        }
+        
         //Create p1 team
         playerManager.getCurrentPlayer().team.append(Fighter(name: "Aragorn"))
         playerManager.getCurrentPlayer().team.append(Mage(name: "Gandalf"))
@@ -148,41 +181,26 @@ class Game {
         playerManager.getCurrentPlayer().team.append(Fighter(name: "Snow"))
         playerManager.getCurrentPlayer().team.append(Mage(name: "Marwyn"))
         playerManager.getCurrentPlayer().team.append(Colossus(name: "Hodor"))
+        //Go back to initial player
+        playerManager.nextPlayer()
         
-        print("Here's the playing order: ")
-        //loop through the players to get their names
-        for _ in 0..<playerManager.getNumberOfPlayers() {
-            print("\(playerManager.getCurrentPlayer().name)")
-            playerManager.nextPlayer()
-        }
-        print("Hope you guys are ready, cause here comes the battle !\n\n")
+
+        print("\n\nHope you guys are ready, cause here comes the battle !")
+        
+        let fight = Fight()
         
         //Battle loop
         while playerManager.getNumberOfPlayersAlive() > 1 {
-            print("TEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
+            print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
             print(playerManager.recapPlayersTeam())
-            print("\(playerManager.getCurrentPlayer().name), who will fight for this turn (1 / 2 / 3) ?")
-            var goOn:Bool = false
-            while !goOn {
-                //Get user input
-                if let userInput = readLine(){
-                    switch userInput {
-                    case "1":
-                        break
-                    case "2":
-                        break
-                    case "3":
-                        break
-                    default:
-                        print("\nNope, can't pick that. Try again ! \n")
-                        goOn = false
-                    }
-                }
-                else {
-                    print("\nNope, can't pick that. Try again ! \n")
-                    goOn = false
-                }
-            }
+            print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
+            let atk = getCharNumber(player: playerManager.getCurrentPlayer())
+            print("\n\nAnd who will be your target for this turn (type enemy's character's number) ?")
+            let def = getCharNumber(player: playerManager.getNextPlayer())
+            //Do the duel between attacker and defender
+            fight.duel(atkNumber: atk, defNumber: def, playerManager: playerManager)
+            //End of the player's turn, we want the next player.
+            playerManager.nextPlayer()
         }
     }
 }

@@ -25,4 +25,9 @@ class Character {
         self.weapon = weapon
         self.className = className
     }
+    
+    //Returns a string to resume all the datas of the character
+    func printChar() -> String {
+        return "\(name), \(className). Atk: \(weapon.power) HP: \(currentHp)/\(maxHp)"
+    }
 }

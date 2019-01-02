@@ -25,10 +25,8 @@ class Player {
     //Returns a formated string with all the characters of the team, with their class and name.
     func printTeam() -> String {
         var output:String = ""
-        var num:Int = 1
-        for char in team {
-            output += "\(num). \(char.name), \(char.className). Atk: \(char.weapon.power) HP: \(char.currentHp)/\(char.maxHp)\n"
-            num += 1
+        for (index, char) in team.enumerated() {
+            output += "\(index+1). \(char.printChar())\n"
         }
         return output
     }
@@ -43,5 +41,10 @@ class Player {
         }
         //If there is a character alive in the team, returns true
         return nbCharAlive > 0
+    }
+    
+    //Checks if given number matches an index for team
+    func isCharNumberValid(number:Int) -> Bool {
+        return number-1 >= 0 && number-1 < team.count
     }
 }

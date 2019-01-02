@@ -18,8 +18,8 @@ class Fight {
         nbOfTurns = 0
     }
     
-    //Func that will run the fight between the two players.
-    func startBattle(game: Game) {
+    //Func that will do an attack between current player and next player.
+    func duel(atkNumber:Int, defNumber:Int, playerManager:PlayerManager) {
         
     }
 }
