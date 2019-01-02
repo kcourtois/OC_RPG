@@ -25,14 +25,16 @@ class Game {
         }
         
         print("\nAwesome ! Now that you are all here, why don't you take some time to build a team ? \n")
-        print("You have to select 3 characters. I will ask you what class you want to pick and what is your character's name. Let's start ! \n")
+        print("You have to select your characters. I will ask you what class you want to pick and what is your character's name. Let's start ! \n")
         
         //Player team selection
         for _ in 0..<playerManager.getNumberOfPlayers() {
-            print("\(playerManager.getCurrentPlayer().name), you can build your team.\n")
+            print("\n\n\(playerManager.getCurrentPlayer().name), you can build your team.\n")
             //For loop to create all characters of player's team
             for _ in 0..<playerManager.getCurrentPlayer().maxCharInTeam {
-                playerManager.getCurrentPlayer().team.append(createCharacter())
+                print("\nNow it's time to pick a new character.\n")
+                let charName:String = askName(askPhrase: "How do you want to name him/her ?")
+                playerManager.getCurrentPlayer().team.append(createCharacter(name:charName))
             }
             playerManager.nextPlayer()
         }
@@ -55,7 +57,7 @@ class Game {
         print(askPhrase)
         //Get input from the user
         if let userInput = readLine(){
-            if let userName = nameManager.formatName(name: userInput) {
+            if let userName = nameManager.nameCheck(name: userInput) {
                 //Ask confirmation
                 print("\n\(userName), that's it ? (y/n)")
                 //If user says yes
@@ -104,9 +106,7 @@ class Game {
     
     //Func for character creation. Ask the user for the class and name of his character and
     //returns a character with this datas.
-    private func createCharacter() -> Character {
-        print("\nNow it's time to pick a new character.\n")
-        let charName:String = askName(askPhrase: "How do you want to name him/her ?")
+    private func createCharacter(name:String) -> Character {
         print("What class will you pick ?\n")
         print("1 - Fighter: The basic attacker. A good warrior ! 🤺\n")
         print("2 - Mage: His gift ? Heal his fellow partners ! 🧙‍♂️\n")
@@ -116,21 +116,21 @@ class Game {
         if let userInput = readLine(){
             switch userInput {
             case "1":
-                return Fighter(name: charName)
+                return Fighter(name: name)
             case "2":
-                return Mage(name: charName)
+                return Mage(name: name)
             case "3":
-                return Colossus(name: charName)
+                return Colossus(name: name)
             case "4":
-                return Dwarf(name: charName)
+                return Dwarf(name: name)
             default:
                 print("\nNope, can't pick that. Try again ! \n")
-                return createCharacter()
+                return createCharacter(name: name)
             }
         }
         else {
             print("\nNope, can't pick that. Try again ! \n")
-            return createCharacter()
+            return createCharacter(name: name)
         }
     }
     
