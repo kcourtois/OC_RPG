@@ -9,11 +9,6 @@
 import Foundation
 
 class Character {
-    
-    enum ClassName {
-        
-    }
-    
     let name:String
     let maxHp:Int
     var currentHp:Int

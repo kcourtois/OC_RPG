@@ -134,7 +134,7 @@ class Game {
         }
     }
     
-    //Get player input to select a character. Requires a player as parameter
+    //Get player input to select a character to fight. Requires a player as parameter
     func charSelectionInput(player:Player) -> Character {
         //Get user input
         if let userInput = readLine(){
