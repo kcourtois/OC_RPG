@@ -19,7 +19,9 @@ class Fight {
     }
     
     //Func that will do an attack between current player and next player.
-    func duel(atkNumber:Int, defNumber:Int, playerManager:PlayerManager) {
-        
+    func duel(atkChar:Character, defChar:Character) {
+        defChar.receiveDmg(dmg: atkChar.weapon.power)
+        //Turn ends, nb of turns increases
+        nbOfTurns += 1
     }
 }

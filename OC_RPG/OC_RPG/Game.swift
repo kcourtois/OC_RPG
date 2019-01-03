@@ -134,28 +134,28 @@ class Game {
         }
     }
     
-    //Get player input to select a character number. Requires a player as parameter
-    func getCharNumber(player:Player) -> Int {
+    //Get player input to select a character. Requires a player as parameter
+    func charSelectionInput(player:Player) -> Character {
         //Get user input
         if let userInput = readLine(){
             if let num = Int(userInput) {
-                if player.isCharNumberValid(number: num) {
+                if let charSelected = player.getCharacter(number: num) {
                     //returns character number picked
-                    return num
+                    return charSelected
                 }
                 else {
                     print("\nNope, can't pick that. Try again ! \n")
-                    return getCharNumber(player:player)
+                    return charSelectionInput(player:player)
                 }
             }
             else {
                 print("\nNope, can't pick that. Try again ! \n")
-                return getCharNumber(player:player)
+                return charSelectionInput(player:player)
             }
         }
         else {
             print("\nNope, can't pick that. Try again ! \n")
-            return getCharNumber(player:player)
+            return charSelectionInput(player:player)
         }
     }
 
@@ -194,11 +194,23 @@ class Game {
             print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
             print(playerManager.recapPlayersTeam())
             print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
-            let atk = getCharNumber(player: playerManager.getCurrentPlayer())
-            print("\n\nAnd who will be your target for this turn (type enemy's character's number) ?")
-            let def = getCharNumber(player: playerManager.getNextPlayer())
+            //Select a character in currentPlayer's team
+            let atkChar:Character = charSelectionInput(player: playerManager.getCurrentPlayer())
+            var defChar:Character
+            if atkChar is Mage {
+                print("\n\nAnd who do you want to heal (type your character's number) ?")
+                defChar = charSelectionInput(player: playerManager.getCurrentPlayer())
+
+            }
+            else {
+                print("\n\nAnd who will be your target for this turn (type enemy's character's number) ?")
+                defChar = charSelectionInput(player: playerManager.getNextPlayer())
+            }
+            
             //Do the duel between attacker and defender
-            fight.duel(atkNumber: atk, defNumber: def, playerManager: playerManager)
+            fight.duel(atkChar: atkChar, defChar: defChar)
+
+
             //End of the player's turn, we want the next player.
             playerManager.nextPlayer()
         }

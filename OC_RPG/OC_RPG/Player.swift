@@ -43,8 +43,13 @@ class Player {
         return nbCharAlive > 0
     }
     
-    //Checks if given number matches an index for team
-    func isCharNumberValid(number:Int) -> Bool {
-        return number-1 >= 0 && number-1 < team.count
+    //Returns the character that matches the number given, if exists
+    func getCharacter(number:Int) -> Character? {
+        if number-1 >= 0 && number-1 < team.count {
+            return team[number-1]
+        }
+        else {
+            return nil
+        }
     }
 }
