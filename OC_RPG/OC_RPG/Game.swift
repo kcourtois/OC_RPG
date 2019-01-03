@@ -220,5 +220,12 @@ class Game {
             //End of the player's turn, we want the next player.
             playerManager.nextPlayer()
         }
+        
+        if let winner = playerManager.getFirstPlayerAlive() {
+            print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
+        }
+        else {
+            print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
+        }
     }
 }

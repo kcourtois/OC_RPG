@@ -56,6 +56,16 @@ class PlayerManager {
         return nbPlayersAlive
     }
     
+    //Returns first player found alive, if any
+    func getFirstPlayerAlive() -> Player? {
+        for player in players {
+            if player.isAlive() {
+                return player
+            }
+        }
+        return nil
+    }
+    
     //returns current player
     func getCurrentPlayer() -> Player {
         //If we didn't pick who will play first, we do it now
