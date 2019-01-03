@@ -214,7 +214,7 @@ class Game {
             }
             
             //Do the duel between attacker and defender
-            fight.duel(atkChar: atkChar, defChar: defChar)
+            print(fight.duel(atkChar: atkChar, defChar: defChar))
 
 
             //End of the player's turn, we want the next player.
