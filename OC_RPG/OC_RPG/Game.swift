@@ -140,8 +140,14 @@ class Game {
         if let userInput = readLine(){
             if let num = Int(userInput) {
                 if let charSelected = player.getCharacter(number: num) {
-                    //returns character number picked
-                    return charSelected
+                    if charSelected.isAlive {
+                        //returns character number picked
+                        return charSelected
+                    }
+                    else {
+                        print("\n\(charSelected.name) is dead. Choose someone else. \n")
+                        return charSelectionInput(player:player)
+                    }
                 }
                 else {
                     print("\nNope, can't pick that. Try again ! \n")
