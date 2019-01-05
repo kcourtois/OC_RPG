@@ -26,7 +26,9 @@ class Player {
     func printTeam() -> String {
         var output:String = ""
         for (index, char) in team.enumerated() {
-            output += "\(index+1). \(char.printChar())\n"
+            if char.isAlive {
+                output += "\(index+1). \(char.printChar())\n"
+            }
         }
         return output
     }

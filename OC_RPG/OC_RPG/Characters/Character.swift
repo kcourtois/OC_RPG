@@ -11,7 +11,16 @@ import Foundation
 class Character {
     let name:String
     let maxHp:Int
-    var currentHp:Int
+    var currentHp:Int {
+        didSet {
+            if currentHp > maxHp {
+                currentHp = maxHp
+            }
+            else if currentHp < 0 {
+                currentHp = 0
+            }
+        }
+    }
     let weapon:Weapon
     let className:String
     var isAlive:Bool {
@@ -31,14 +40,8 @@ class Character {
         return "\(name), \(className). Atk: \(weapon.power) HP: \(currentHp)/\(maxHp)"
     }
     
-    //Alter current Hp with dmg in parameters
-    func receiveDmg(dmg:Int){
-        currentHp = currentHp - dmg
-        if currentHp > maxHp {
-            currentHp = maxHp
-        }
-        else if currentHp < 0 {
-            currentHp = 0
-        }
+    //Attack function that inflicts weapon power dmg to target
+    func attack(target:Character){
+        target.currentHp = target.currentHp - weapon.power
     }
 }

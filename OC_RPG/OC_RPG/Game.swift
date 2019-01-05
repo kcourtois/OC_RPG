@@ -90,11 +90,8 @@ class Game {
             case "y","yes":
                 print("\nAlright !\n")
                 return true
-            case "n","no":
-                print("\nHum... I guess i did not hear you well !\n")
-                return false
             default:
-                print("\nHum... I guess i did not hear you well !\n")
+                print("\nOk, let's restart from the beginning.\n")
                 return false
             }
         }
@@ -107,7 +104,7 @@ class Game {
     //Func for character creation. Ask the user for the class and name of his character and
     //returns a character with this datas.
     private func createCharacter(name:String) -> Character {
-        print("What class will you pick ?\n")
+        print("\n\nWhat class will you pick ?\n")
         print("1 - Fighter: The basic attacker. A good warrior ! 🤺\n")
         print("2 - Mage: His gift ? Heal his fellow partners ! 🧙‍♂️\n")
         print("3 - Colossus: Tough and mighty, but he will not hurt you. 🛡\n")
@@ -124,12 +121,12 @@ class Game {
             case "4":
                 return Dwarf(name: name)
             default:
-                print("\nNope, can't pick that. Try again ! \n")
+                print("\nNope, can't pick that. Try again !")
                 return createCharacter(name: name)
             }
         }
         else {
-            print("\nNope, can't pick that. Try again ! \n")
+            print("\nNope, can't pick that. Try again !")
             return createCharacter(name: name)
         }
     }
@@ -139,28 +136,22 @@ class Game {
         //Get user input
         if let userInput = readLine(){
             if let num = Int(userInput) {
-                if let charSelected = player.getCharacter(number: num) {
-                    if charSelected.isAlive {
-                        //returns character number picked
-                        return charSelected
-                    }
-                    else {
-                        print("\n\(charSelected.name) is dead. Choose someone else. \n")
-                        return charSelectionInput(player:player)
-                    }
+                if let charSelected = player.getCharacter(number: num), charSelected.isAlive {
+                    //returns character number picked
+                    return charSelected
                 }
                 else {
-                    print("\nNope, can't pick that. Try again ! \n")
+                    print("\nNope, can't pick that. Try again !")
                     return charSelectionInput(player:player)
                 }
             }
             else {
-                print("\nNope, can't pick that. Try again ! \n")
+                print("\nNope, can't pick that. Try again !")
                 return charSelectionInput(player:player)
             }
         }
         else {
-            print("\nNope, can't pick that. Try again ! \n")
+            print("\nNope, can't pick that. Try again !")
             return charSelectionInput(player:player)
         }
     }
@@ -206,7 +197,6 @@ class Game {
             if atkChar is Mage {
                 print("\n\nAnd who do you want to heal (type your character's number) ?")
                 defChar = charSelectionInput(player: playerManager.getCurrentPlayer())
-
             }
             else {
                 print("\n\nAnd who will be your target for this turn (type enemy's character's number) ?")

@@ -42,7 +42,7 @@ class NameManager {
     }
     
     //Returns the name given in the right format
-    func formatName(name:String) -> String {
+    private func formatName(name:String) -> String {
         return name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines).capitalized
     }
 }

@@ -37,7 +37,7 @@ class Fight {
         }
         
         //Do the action of the turn
-        defChar.receiveDmg(dmg: atkChar.weapon.power)
+        atkChar.attack(target: defChar)
         //Adds new hp to the output
         output += "\(defChar.currentHp)."
         //Turn ends, nb of turns increases
