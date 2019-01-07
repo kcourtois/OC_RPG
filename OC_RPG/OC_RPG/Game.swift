@@ -155,6 +155,23 @@ class Game {
             return charSelectionInput(player:player)
         }
     }
+    
+    //Generate random int to know if character found a chest. If there is a chest, character will find a random weapon and equip it.
+    func lookForChest(char:Character) {
+        //25‰ chance to find it
+        let chanceToFind:Int = 25
+        //pick a random number between 0 and 100
+        let randNum:Int = Int.random(in: 0...100)
+        //If randNum is in chanceToFind percentage
+        if randNum <= chanceToFind {
+            let oldAtk:Int = char.weapon.power
+            var output:String = "\n\n\(char.name) found a new weapon ! "
+            //character can open a chest
+            char.openChest(chest: Chest())
+            output += "It's a \(char.weapon.name). He equips it... ATK: \(oldAtk) -> \(char.weapon.power)"
+            print(output)
+        }
+    }
 
     func test() {
         //Adds 2 test players
@@ -191,8 +208,13 @@ class Game {
             print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
             print(playerManager.recapPlayersTeam())
             print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
+            
             //Select a character in currentPlayer's team
             let atkChar:Character = charSelectionInput(player: playerManager.getCurrentPlayer())
+            
+            //See if character found a chest
+            lookForChest(char: atkChar)
+            
             var defChar:Character
             if atkChar is Mage {
                 print("\n\nAnd who do you want to heal (type your character's number) ?")

@@ -10,8 +10,8 @@ import Foundation
 
 class Chest {
     
-    let fighterWeapons:[Weapon] = [WoodenStaff(), RainStaff(), OwlStaff(), NurturerStaff()]
-    let mageWeapons:[Weapon] = [WoodenSword(), CopperSword(), SilverSword(), GoldenSword()]
+    let mageWeapons:[Weapon] = [WoodenStaff(), RainStaff(), OwlStaff(), NurturerStaff()]
+    let fighterWeapons:[Weapon] = [WoodenSword(), CopperSword(), SilverSword(), GoldenSword()]
     let colossusWeapons:[Weapon] = [WoodenMace(), CopperMace(), SilverMace(), GoldenMace()]
     let dwarfWeapons:[Weapon] = [WoodenAxe(), CopperAxe(), SilverAxe(), GoldenAxe()]
     
@@ -20,11 +20,11 @@ class Chest {
         case is Fighter:
             return fighterWeapons[Int.random(in: 0..<fighterWeapons.count)]
         case is Mage:
-            return mageWeapons[Int.random(in: 0..<fighterWeapons.count)]
+            return mageWeapons[Int.random(in: 0..<mageWeapons.count)]
         case is Colossus:
-            return colossusWeapons[Int.random(in: 0..<fighterWeapons.count)]
+            return colossusWeapons[Int.random(in: 0..<colossusWeapons.count)]
         case is Dwarf:
-            return dwarfWeapons[Int.random(in: 0..<fighterWeapons.count)]
+            return dwarfWeapons[Int.random(in: 0..<dwarfWeapons.count)]
         default:
             return Weapon(name: "Wooden Stick", power: 1)
         }
