@@ -21,7 +21,7 @@ class Character {
             }
         }
     }
-    let weapon:Weapon
+    private(set) var weapon:Weapon
     let className:String
     var isAlive:Bool {
         return currentHp > 0
@@ -38,6 +38,11 @@ class Character {
     //Returns a string to resume all the datas of the character
     func printChar() -> String {
         return "\(name), \(className). Atk: \(weapon.power) HP: \(currentHp)/\(maxHp)"
+    }
+    
+    //Opens the chest given in parameters and equip the new weapon found inside it
+    func openChest(chest:Chest) {
+        weapon = chest.loot(char: self)
     }
     
     //Attack function that inflicts weapon power dmg to target

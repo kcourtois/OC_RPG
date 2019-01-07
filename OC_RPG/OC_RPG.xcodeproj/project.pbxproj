@@ -35,6 +35,7 @@
 		9EB12E3E21DCCD6D00C53E6B /* SilverSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3B21DCCD6D00C53E6B /* SilverSword.swift */; };
 		9EB12E3F21DCCD6D00C53E6B /* GoldenSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3C21DCCD6D00C53E6B /* GoldenSword.swift */; };
 		9EB12E4021DCCD6D00C53E6B /* CopperSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3D21DCCD6D00C53E6B /* CopperSword.swift */; };
+		9EB12E4221E3519600C53E6B /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4121E3519600C53E6B /* Chest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +80,7 @@
 		9EB12E3B21DCCD6D00C53E6B /* SilverSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilverSword.swift; sourceTree = "<group>"; };
 		9EB12E3C21DCCD6D00C53E6B /* GoldenSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSword.swift; sourceTree = "<group>"; };
 		9EB12E3D21DCCD6D00C53E6B /* CopperSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopperSword.swift; sourceTree = "<group>"; };
+		9EB12E4121E3519600C53E6B /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				9E2FD39E21C7B7C000FC2A60 /* Game.swift */,
 				9EB12DFF21CC09B300C53E6B /* NameManager.swift */,
 				9EB12E0121CC09D600C53E6B /* PlayerManager.swift */,
+				9EB12E4121E3519600C53E6B /* Chest.swift */,
 			);
 			path = OC_RPG;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				9EB12E3421DCCD4400C53E6B /* SilverMace.swift in Sources */,
 				9E2FD3AD21C815EE00FC2A60 /* Character.swift in Sources */,
 				9E2FD3A521C7ED3E00FC2A60 /* Fighter.swift in Sources */,
+				9EB12E4221E3519600C53E6B /* Chest.swift in Sources */,
 				9EB12E3E21DCCD6D00C53E6B /* SilverSword.swift in Sources */,
 				9E2FD3AB21C7ED8C00FC2A60 /* Dwarf.swift in Sources */,
 				9EB12E3321DCCD4400C53E6B /* CopperMace.swift in Sources */,
