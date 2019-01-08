@@ -36,6 +36,11 @@
 		9EB12E3F21DCCD6D00C53E6B /* GoldenSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3C21DCCD6D00C53E6B /* GoldenSword.swift */; };
 		9EB12E4021DCCD6D00C53E6B /* CopperSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E3D21DCCD6D00C53E6B /* CopperSword.swift */; };
 		9EB12E4221E3519600C53E6B /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4121E3519600C53E6B /* Chest.swift */; };
+		9EB12E4421E4A9F000C53E6B /* Rogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4321E4A9F000C53E6B /* Rogue.swift */; };
+		9EB12E4A21E4AAC900C53E6B /* GoldenDagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4621E4AAC900C53E6B /* GoldenDagger.swift */; };
+		9EB12E4B21E4AAC900C53E6B /* CopperDagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4721E4AAC900C53E6B /* CopperDagger.swift */; };
+		9EB12E4C21E4AAC900C53E6B /* SilverDagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4821E4AAC900C53E6B /* SilverDagger.swift */; };
+		9EB12E4D21E4AAC900C53E6B /* WoodenDagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4921E4AAC900C53E6B /* WoodenDagger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +86,11 @@
 		9EB12E3C21DCCD6D00C53E6B /* GoldenSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSword.swift; sourceTree = "<group>"; };
 		9EB12E3D21DCCD6D00C53E6B /* CopperSword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopperSword.swift; sourceTree = "<group>"; };
 		9EB12E4121E3519600C53E6B /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
+		9EB12E4321E4A9F000C53E6B /* Rogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rogue.swift; sourceTree = "<group>"; };
+		9EB12E4621E4AAC900C53E6B /* GoldenDagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenDagger.swift; sourceTree = "<group>"; };
+		9EB12E4721E4AAC900C53E6B /* CopperDagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopperDagger.swift; sourceTree = "<group>"; };
+		9EB12E4821E4AAC900C53E6B /* SilverDagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilverDagger.swift; sourceTree = "<group>"; };
+		9EB12E4921E4AAC900C53E6B /* WoodenDagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenDagger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +144,7 @@
 				9E2FD3A621C7ED6100FC2A60 /* Mage.swift */,
 				9E2FD3A821C7ED7C00FC2A60 /* Colossus.swift */,
 				9E2FD3AA21C7ED8C00FC2A60 /* Dwarf.swift */,
+				9EB12E4321E4A9F000C53E6B /* Rogue.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -141,6 +152,7 @@
 		9EB12DFE21CC08F700C53E6B /* Weapons */ = {
 			isa = PBXGroup;
 			children = (
+				9EB12E4521E4AA6F00C53E6B /* Dagger */,
 				9EB12E2621DCCD1300C53E6B /* Staves */,
 				9EB12E1A21DCC4D700C53E6B /* Maces */,
 				9EB12E1921DCC4CD00C53E6B /* Axes */,
@@ -192,6 +204,17 @@
 				9EB12E2721DCCD3500C53E6B /* WoodenStaff.swift */,
 			);
 			path = Staves;
+			sourceTree = "<group>";
+		};
+		9EB12E4521E4AA6F00C53E6B /* Dagger */ = {
+			isa = PBXGroup;
+			children = (
+				9EB12E4721E4AAC900C53E6B /* CopperDagger.swift */,
+				9EB12E4621E4AAC900C53E6B /* GoldenDagger.swift */,
+				9EB12E4821E4AAC900C53E6B /* SilverDagger.swift */,
+				9EB12E4921E4AAC900C53E6B /* WoodenDagger.swift */,
+			);
+			path = Dagger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB12E4C21E4AAC900C53E6B /* SilverDagger.swift in Sources */,
+				9EB12E4B21E4AAC900C53E6B /* CopperDagger.swift in Sources */,
+				9EB12E4A21E4AAC900C53E6B /* GoldenDagger.swift in Sources */,
+				9EB12E4D21E4AAC900C53E6B /* WoodenDagger.swift in Sources */,
 				9E2FD3B121C8FDB500FC2A60 /* Fight.swift in Sources */,
 				9EB12E3A21DCCD5700C53E6B /* GoldenAxe.swift in Sources */,
 				9E2FD3A921C7ED7C00FC2A60 /* Colossus.swift in Sources */,
@@ -277,6 +304,7 @@
 				9EB12E2D21DCCD3500C53E6B /* RainStaff.swift in Sources */,
 				9E2FD39721C7AFB900FC2A60 /* Player.swift in Sources */,
 				9EB12E2121DCC65900C53E6B /* WoodenMace.swift in Sources */,
+				9EB12E4421E4A9F000C53E6B /* Rogue.swift in Sources */,
 				9EB12E2E21DCCD3500C53E6B /* OwlStaff.swift in Sources */,
 				9E2FD39021C7A85300FC2A60 /* main.swift in Sources */,
 				9EB12E3821DCCD5700C53E6B /* SilverAxe.swift in Sources */,
