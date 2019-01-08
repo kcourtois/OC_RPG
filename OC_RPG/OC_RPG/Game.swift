@@ -109,6 +109,7 @@ class Game {
         print("2 - Mage: His gift ? Heal his fellow partners ! 🧙‍♂️\n")
         print("3 - Colossus: Tough and mighty, but he will not hurt you. 🛡\n")
         print("4 - Dwarf: His axe will hit you hard, but his life bar is as short as his height. 🔪\n")
+        print("5 - Rogue: He moves stealthily , and might poison you with his sharp daggers. 🗡\n")
         //Get input from the user
         if let userInput = readLine(){
             switch userInput {
@@ -120,6 +121,8 @@ class Game {
                 return Colossus(name: name)
             case "4":
                 return Dwarf(name: name)
+            case "5":
+                return Rogue(name: name)
             default:
                 print("\nNope, can't pick that. Try again !")
                 return createCharacter(name: name)
@@ -192,7 +195,7 @@ class Game {
         //Pick next player
         playerManager.nextPlayer()
         //Create p2 team
-        playerManager.getCurrentPlayer().team.append(Fighter(name: "Snow"))
+        playerManager.getCurrentPlayer().team.append(Rogue(name: "Snow"))
         playerManager.getCurrentPlayer().team.append(Mage(name: "Marwyn"))
         playerManager.getCurrentPlayer().team.append(Colossus(name: "Hodor"))
         //Go back to initial player

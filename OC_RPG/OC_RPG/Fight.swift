@@ -32,6 +32,8 @@ class Fight {
             output += "\(atkChar.name) slaps \(defChar.name) with his \(atkChar.weapon.name). Ouch, \(defChar.name) will have a headache. HP: \(defChar.currentHp) -> "
         case is Dwarf:
             output += "\(atkChar.name) smashes \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) is seriously injured. HP: \(defChar.currentHp) -> "
+        case is Rogue:
+            output += "\(atkChar.name) stabs \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) did not see this coming. HP: \(defChar.currentHp) -> "
         default:
             output += "\(defChar.name) was attacked by \(atkChar.name). HP: \(defChar.currentHp) -> "
         }
