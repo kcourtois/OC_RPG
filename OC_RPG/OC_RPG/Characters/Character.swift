@@ -9,6 +9,10 @@
 import Foundation
 
 class Character {
+    enum Status {
+        case Normal, Poisoned, Paralyzed, Confused
+    }
+    let state:Status
     let name:String
     let maxHp:Int
     var currentHp:Int {
@@ -33,6 +37,7 @@ class Character {
         self.currentHp = maxHp
         self.weapon = weapon
         self.className = className
+        self.state = .Normal
     }
     
     //Returns a string to resume all the datas of the character
