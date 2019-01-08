@@ -13,4 +13,15 @@ class Dwarf: Character {
         let basicWeapon = WoodenAxe()
         super.init(name: name, className:"Dwarf", maxHp: 50, weapon: basicWeapon)
     }
+    
+    //When attacking, a dwarf sometimes get himself confused
+    override func attack(target: Character) {
+        super.attack(target: target)
+        //15% of chance to get confused when attacking enemy
+        let confusionPercentage:Int = 15
+        let random:Int = Int.random(in: 0...100)
+        if random <= confusionPercentage {
+            self.status = .Confused
+        }
+    }
 }

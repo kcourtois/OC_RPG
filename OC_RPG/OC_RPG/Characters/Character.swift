@@ -9,10 +9,10 @@
 import Foundation
 
 class Character {
-    enum Status {
+    enum States {
         case Normal, Poisoned, Paralyzed, Confused
     }
-    let state:Status
+    var status:States
     let name:String
     let maxHp:Int
     var currentHp:Int {
@@ -37,12 +37,12 @@ class Character {
         self.currentHp = maxHp
         self.weapon = weapon
         self.className = className
-        self.state = .Normal
+        self.status = .Normal
     }
     
     //Returns a string to resume all the datas of the character
     func printChar() -> String {
-        return "\(name), \(className). Atk: \(weapon.power), HP: \(currentHp)/\(maxHp), Status: \(state)."
+        return "\(name), \(className). Atk: \(weapon.power), HP: \(currentHp)/\(maxHp), Status: \(status)."
     }
     
     //Opens the chest given in parameters and equip the new weapon found inside it
