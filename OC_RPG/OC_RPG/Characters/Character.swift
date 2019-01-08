@@ -42,7 +42,7 @@ class Character {
     
     //Returns a string to resume all the datas of the character
     func printChar() -> String {
-        return "\(name), \(className). Atk: \(weapon.power) HP: \(currentHp)/\(maxHp)"
+        return "\(name), \(className). Atk: \(weapon.power), HP: \(currentHp)/\(maxHp), Status: \(state)."
     }
     
     //Opens the chest given in parameters and equip the new weapon found inside it
