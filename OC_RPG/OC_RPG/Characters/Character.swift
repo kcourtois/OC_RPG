@@ -9,12 +9,31 @@
 import Foundation
 
 class Character {
+    //Enum of possible states for the character
     enum States {
         case Normal, Poisoned, Paralyzed, Confused
     }
-    var status:States
+    //StateTurns is an int that determins how many turns are left with an altered state
+    var stateTurns:Int {
+        didSet {
+            if stateTurns <= 0 {
+                status = .Normal
+            }
+        }
+    }
+    //Character's current state
+    var status:States {
+        didSet {
+            if status != .Normal {
+                stateTurns = 3
+            }
+        }
+    }
+    //Character's name
     let name:String
+    //Character's maximum hp
     let maxHp:Int
+    //Current hp of the character. didSet will keep it into the range from 0 to maxHp.
     var currentHp:Int {
         didSet {
             if currentHp > maxHp {
@@ -25,8 +44,11 @@ class Character {
             }
         }
     }
+    //Weapon can be read but not set by an external class
     private(set) var weapon:Weapon
+    //ClassName is used for prints
     let className:String
+    //Returns true if character is still alive
     var isAlive:Bool {
         return currentHp > 0
     }
@@ -38,6 +60,7 @@ class Character {
         self.weapon = weapon
         self.className = className
         self.status = .Normal
+        self.stateTurns = 0
     }
     
     //Returns a string to resume all the datas of the character

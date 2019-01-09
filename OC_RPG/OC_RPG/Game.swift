@@ -231,7 +231,9 @@ class Game {
             //Do the duel between attacker and defender
             print(fight.duel(atkChar: atkChar, defChar: defChar))
 
-
+            //Update player's characters status
+            fight.updateStatus(player: playerManager.getCurrentPlayer())
+            
             //End of the player's turn, we want the next player.
             playerManager.nextPlayer()
         }
