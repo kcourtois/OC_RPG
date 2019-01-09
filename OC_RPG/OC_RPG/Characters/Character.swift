@@ -19,6 +19,10 @@ class Character {
             if stateTurns <= 0 {
                 status = .Normal
             }
+            //Get hit by poison when state updates
+            if status == .Poisoned {
+                currentHp -= Int.random(in: 3...8)
+            }
         }
     }
     //Character's current state
@@ -34,7 +38,7 @@ class Character {
     //Character's maximum hp
     let maxHp:Int
     //Current hp of the character. didSet will keep it into the range from 0 to maxHp.
-    var currentHp:Int {
+    private(set) var currentHp:Int {
         didSet {
             if currentHp > maxHp {
                 currentHp = maxHp

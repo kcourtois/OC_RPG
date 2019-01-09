@@ -135,7 +135,7 @@ class Game {
     }
     
     //Get player input to select a character to fight. Requires a player as parameter
-    func charSelectionInput(player:Player) -> Character {
+    private func charSelectionInput(player:Player) -> Character {
         //Get user input
         if let userInput = readLine(){
             if let num = Int(userInput) {
@@ -160,7 +160,7 @@ class Game {
     }
     
     //Generate random int to know if character found a chest. If there is a chest, character will find a random weapon and equip it.
-    func lookForChest(char:Character) {
+    private func lookForChest(char:Character) {
         //25‰ chance to find it
         let chanceToFind:Int = 25
         //pick a random number between 0 and 100
@@ -173,6 +173,16 @@ class Game {
             char.openChest(chest: Chest())
             output += "It's a \(char.weapon.name). He equips it... ATK: \(oldAtk) -> \(char.weapon.power)"
             print(output)
+        }
+    }
+    
+    //Returns a random character in currentPlayer's team or nextPlayer's team
+    private func getRandomChar() -> Character {
+        if Int.random(in: 0...1) == 0 {
+            return playerManager.getCurrentPlayer().getRandomCharacter()
+        }
+        else {
+            return playerManager.getNextPlayer().getRandomCharacter()
         }
     }
 
@@ -228,8 +238,25 @@ class Game {
                 defChar = charSelectionInput(player: playerManager.getNextPlayer())
             }
             
-            //Do the duel between attacker and defender
-            print(fight.duel(atkChar: atkChar, defChar: defChar))
+            switch atkChar.status {
+            case .Confused:
+                print("\n\(atkChar.name) is confused. He lost his target.")
+                //Do the duel between attacker and defender
+                print(fight.duel(atkChar: atkChar, defChar: getRandomChar()))
+            case .Paralyzed:
+                //Rand O/1 cause there is 50% chance of hitting target when paralyzed
+                let rnd = Int.random(in: 0...1)
+                if rnd == 0 {
+                    print("\n\(atkChar.name) is paralyzed. He couldn't do anything.")
+                }
+                else {
+                    //Do the duel between attacker and defender
+                    print(fight.duel(atkChar: atkChar, defChar: defChar))
+                }
+            default:
+                //Do the duel between attacker and defender
+                print(fight.duel(atkChar: atkChar, defChar: defChar))
+            }
 
             //Update player's characters status
             fight.updateStatus(player: playerManager.getCurrentPlayer())
