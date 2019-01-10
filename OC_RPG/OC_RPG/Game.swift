@@ -21,7 +21,8 @@ class Game {
         print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely ! \n\n")
         
         for _ in 0..<maxPlayers {
-            playerManager.addPlayer(name: askName(askPhrase: "What's your name Player \(playerManager.getNumberOfPlayers()+1) ?"))
+            print("What's your name Player \(playerManager.getNumberOfPlayers()+1) ?")
+            playerManager.addPlayer(name: askName())
         }
         
         print("\nAwesome ! Now that you are all here, why don't you take some time to build a team ? \n")
@@ -33,7 +34,8 @@ class Game {
             //For loop to create all characters of player's team
             for _ in 0..<playerManager.getCurrentPlayer().maxCharInTeam {
                 print("\nNow it's time to pick a new character.\n")
-                let charName:String = askName(askPhrase: "How do you want to name him/her ?")
+                print("How do you want to name him/her ?")
+                let charName:String = askName()
                 playerManager.getCurrentPlayer().team.append(createCharacter(name:charName))
             }
             playerManager.nextPlayer()
@@ -48,13 +50,70 @@ class Game {
             playerManager.nextPlayer()
         }
         print("Hope you guys are ready, cause here comes the battle !\n\n")
+        
+        let fight = Fight()
+        
+        //Battle loop
+        while playerManager.getNumberOfPlayersAlive() > 1 {
+            print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
+            print(playerManager.recapPlayersTeam())
+            print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
+            
+            //Select a character in currentPlayer's team
+            let atkChar:Character = charSelectionInput(player: playerManager.getCurrentPlayer())
+            
+            //See if character found a chest
+            lookForChest(char: atkChar)
+            
+            var defChar:Character
+            if atkChar is Mage {
+                print("\n\nAnd who do you want to heal (type your character's number) ?")
+                defChar = charSelectionInput(player: playerManager.getCurrentPlayer())
+            }
+            else {
+                print("\n\nAnd who will be your target for this turn (type enemy's character's number) ?")
+                defChar = charSelectionInput(player: playerManager.getNextPlayer())
+            }
+            
+            switch atkChar.status {
+            case .Confused:
+                print("\n\(atkChar.name) is confused. He lost his target.")
+                //Do the duel between attacker and defender
+                print(fight.duel(atkChar: atkChar, defChar: getRandomChar()))
+            case .Paralyzed:
+                //Rand O/1 cause there is 50% chance of hitting target when paralyzed
+                let rnd = Int.random(in: 0...1)
+                if rnd == 0 {
+                    print("\n\(atkChar.name) is paralyzed. He couldn't do anything.")
+                }
+                else {
+                    //Do the duel between attacker and defender
+                    print(fight.duel(atkChar: atkChar, defChar: defChar))
+                }
+            default:
+                //Do the duel between attacker and defender
+                print(fight.duel(atkChar: atkChar, defChar: defChar))
+            }
+            
+            //Update player's characters status
+            fight.updateStatus(player: playerManager.getCurrentPlayer())
+            
+            //End of the player's turn, we want the next player.
+            playerManager.nextPlayer()
+        }
+        
+        if let winner = playerManager.getFirstPlayerAlive() {
+            print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
+        }
+        else {
+            print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
+        }
     }
     
     //function to ask a name.
     //askPhrase is a parameter that helps the function to be less
     //repetitive when asking multiple names in a row.
-    private func askName(askPhrase:String) -> String {
-        print(askPhrase)
+    private func askName() -> String {
         //Get input from the user
         if let userInput = readLine(){
             if let userName = nameManager.nameCheck(name: userInput) {
@@ -68,17 +127,17 @@ class Game {
                 else {
                     //notify nameManager that name was not picked
                     nameManager.nameNotPicked(name: userName)
-                    return askName(askPhrase: askPhrase)
+                    return askName()
                 }
             }
             else{
                 print("\nNope, this name is not available !\n")
-                return askName(askPhrase: askPhrase)
+                return askName()
             }
         }
         else {
             print("\nHum... I guess i did not hear you well !\n")
-            return askName(askPhrase: askPhrase)
+            return askName()
         }
     }
     
@@ -88,15 +147,12 @@ class Game {
             //Confirmation switch
             switch yesNo.lowercased() {
             case "y","yes":
-                print("\nAlright !\n")
                 return true
             default:
-                print("\nOk, let's restart from the beginning.\n")
                 return false
             }
         }
         else{
-            print("\nHum... I guess i did not hear you well !\n")
             return false
         }
     }
@@ -107,7 +163,7 @@ class Game {
         print("\n\nWhat class will you pick ?\n")
         print("1 - Fighter: The basic attacker. A good warrior ! 🤺\n")
         print("2 - Mage: His gift ? Heal his fellow partners ! 🧙‍♂️\n")
-        print("3 - Colossus: Tough and mighty, but he will not hurt you. 🛡\n")
+        print("3 - Colossus: Tough and mighty, but he will not hurt you. Can paralyze the enemy. 🛡\n")
         print("4 - Dwarf: His axe will hit you hard, but his life bar is as short as his height. 🔪\n")
         print("5 - Rogue: He moves stealthily , and might poison you with his sharp daggers. 🗡\n")
         //Get input from the user
@@ -140,7 +196,7 @@ class Game {
         if let userInput = readLine(){
             if let num = Int(userInput) {
                 if let charSelected = player.getCharacter(number: num), charSelected.isAlive {
-                    //returns character number picked
+                    //returns character picked
                     return charSelected
                 }
                 else {
@@ -214,62 +270,6 @@ class Game {
 
         print("\n\nHope you guys are ready, cause here comes the battle !")
         
-        let fight = Fight()
-        
-        //Battle loop
-        while playerManager.getNumberOfPlayersAlive() > 1 {
-            print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
-            print(playerManager.recapPlayersTeam())
-            print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
-            
-            //Select a character in currentPlayer's team
-            let atkChar:Character = charSelectionInput(player: playerManager.getCurrentPlayer())
-            
-            //See if character found a chest
-            lookForChest(char: atkChar)
-            
-            var defChar:Character
-            if atkChar is Mage {
-                print("\n\nAnd who do you want to heal (type your character's number) ?")
-                defChar = charSelectionInput(player: playerManager.getCurrentPlayer())
-            }
-            else {
-                print("\n\nAnd who will be your target for this turn (type enemy's character's number) ?")
-                defChar = charSelectionInput(player: playerManager.getNextPlayer())
-            }
-            
-            switch atkChar.status {
-            case .Confused:
-                print("\n\(atkChar.name) is confused. He lost his target.")
-                //Do the duel between attacker and defender
-                print(fight.duel(atkChar: atkChar, defChar: getRandomChar()))
-            case .Paralyzed:
-                //Rand O/1 cause there is 50% chance of hitting target when paralyzed
-                let rnd = Int.random(in: 0...1)
-                if rnd == 0 {
-                    print("\n\(atkChar.name) is paralyzed. He couldn't do anything.")
-                }
-                else {
-                    //Do the duel between attacker and defender
-                    print(fight.duel(atkChar: atkChar, defChar: defChar))
-                }
-            default:
-                //Do the duel between attacker and defender
-                print(fight.duel(atkChar: atkChar, defChar: defChar))
-            }
 
-            //Update player's characters status
-            fight.updateStatus(player: playerManager.getCurrentPlayer())
-            
-            //End of the player's turn, we want the next player.
-            playerManager.nextPlayer()
-        }
-        
-        if let winner = playerManager.getFirstPlayerAlive() {
-            print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
-        }
-        else {
-            print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
-        }
     }
 }

@@ -13,5 +13,6 @@ There are 4 types of units for now :
 
 - Fighter: The basic attacker. A good warrior !  
 - Mage: His gift ? Heal his fellow partners !  
-- Colossus: Tough and mighty, but he will not hurt you.  
+- Colossus: Tough and mighty, but he will not hurt you. Can paralyze the enemy.
 - Dwarf: His axe will hit you hard, but his life bar is as short as his height.  
+- Rogue: He moves stealthily , and might poison you with his sharp daggers.
