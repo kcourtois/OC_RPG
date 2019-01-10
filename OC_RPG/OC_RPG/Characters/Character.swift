@@ -16,6 +16,7 @@ class Character {
     //StateTurns is an int that determins how many turns are left with an altered state
     var stateTurns:Int {
         didSet {
+            //If stateTurns goes to 0, status alteration is over. status goes back to normal
             if stateTurns <= 0 {
                 status = .Normal
             }
