@@ -13,4 +13,15 @@ class Colossus: Character {
         let basicWeapon = WoodenMace()
         super.init(name: name, className: "Colossus", maxHp: 200, weapon: basicWeapon)
     }
+    
+    //When attacking, a colossus can paralyze his target
+    override func attack(target: Character) {
+        super.attack(target: target)
+        //25% of chance to paralyze when attacking enemy
+        let paralyzePercentage:Int = 25
+        let random:Int = Int.random(in: 0...100)
+        if random <= paralyzePercentage {
+            target.status = .Paralyzed
+        }
+    }
 }

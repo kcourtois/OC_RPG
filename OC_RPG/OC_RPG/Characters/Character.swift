@@ -9,13 +9,37 @@
 import Foundation
 
 class Character {
-    enum Status {
+    //Enum of possible states for the character
+    enum States {
         case Normal, Poisoned, Paralyzed, Confused
     }
-    let state:Status
+    //StateTurns is an int that determins how many turns are left with an altered state
+    var stateTurns:Int {
+        didSet {
+            //If stateTurns goes to 0, status alteration is over. status goes back to normal
+            if stateTurns <= 0 {
+                status = .Normal
+            }
+            //Get hit by poison when state updates
+            if status == .Poisoned {
+                currentHp -= Int.random(in: 3...8)
+            }
+        }
+    }
+    //Character's current state
+    var status:States {
+        didSet {
+            if status != .Normal {
+                stateTurns = 3
+            }
+        }
+    }
+    //Character's name
     let name:String
+    //Character's maximum hp
     let maxHp:Int
-    var currentHp:Int {
+    //Current hp of the character. didSet will keep it into the range from 0 to maxHp.
+    private(set) var currentHp:Int {
         didSet {
             if currentHp > maxHp {
                 currentHp = maxHp
@@ -25,8 +49,11 @@ class Character {
             }
         }
     }
+    //Weapon can be read but not set by an external class
     private(set) var weapon:Weapon
+    //ClassName is used for prints
     let className:String
+    //Returns true if character is still alive
     var isAlive:Bool {
         return currentHp > 0
     }
@@ -37,12 +64,13 @@ class Character {
         self.currentHp = maxHp
         self.weapon = weapon
         self.className = className
-        self.state = .Normal
+        self.status = .Normal
+        self.stateTurns = 0
     }
     
     //Returns a string to resume all the datas of the character
     func printChar() -> String {
-        return "\(name), \(className). Atk: \(weapon.power) HP: \(currentHp)/\(maxHp)"
+        return "\(name), \(className). Atk: \(weapon.power), HP: \(currentHp)/\(maxHp), Status: \(status)."
     }
     
     //Opens the chest given in parameters and equip the new weapon found inside it

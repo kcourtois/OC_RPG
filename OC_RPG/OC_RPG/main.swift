@@ -12,6 +12,4 @@ import Foundation
 let game:Game = Game()
 
 //Starts the game.
-//game.play()
-
-game.test()
+game.play()

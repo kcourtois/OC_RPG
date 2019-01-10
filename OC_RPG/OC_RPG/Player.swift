@@ -54,4 +54,19 @@ class Player {
             return nil
         }
     }
+    
+    //Returns a random character alive in the team
+    func getRandomCharacter() -> Character {
+        if let char = getCharacter(number: Int.random(in: 0..<team.count)) {
+            if char.isAlive {
+                return char
+            }
+            else {
+                return getRandomCharacter()
+            }
+        }
+        else {
+            return getRandomCharacter()
+        }
+    }
 }
