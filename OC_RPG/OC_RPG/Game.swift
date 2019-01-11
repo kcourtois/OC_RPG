@@ -19,101 +19,21 @@ class Game {
     private var nbOfTurns:Int = 0
 
     func play(){
-        print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely !")
         
-        for _ in 0..<playerManager.maxPlayers {
-            print("\n\nWhat's your name Player \(playerManager.getNumberOfPlayers()+1) ?")
-            playerManager.addPlayer(name: askName())
-        }
-        
-        print("\nAwesome ! Now that you are all here, why don't you take some time to build a team ? \n")
-        print("You have to select your characters. I will ask you what class you want to pick and what is your character's name. Let's start ! \n")
+        //Prints introduction messages and adds players
+        introPlayers()
         
         //Player team selection
-        for _ in 0..<playerManager.getNumberOfPlayers() {
-            print("\n\n\(playerManager.getCurrentPlayer().name), you can build your team.\n")
-            //For loop to create all characters of player's team
-            for _ in 0..<playerManager.getCurrentPlayer().maxCharInTeam {
-                print("\nNow it's time to pick a new character.\n")
-                print("How do you want to name him/her ?")
-                let charName:String = askName()
-                playerManager.getCurrentPlayer().team.append(createCharacter(name:charName))
-            }
-            playerManager.nextPlayer()
-        }
+        playersTeamSelection()
         
-        print("\nHere's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. ")
+        //prints to recap rules and playing order
+        playingOrder()
         
-        print("\n\nHere's the playing order: ")
-        //loop through the players to get their names
-        for _ in 0..<playerManager.getNumberOfPlayers() {
-            print("\(playerManager.getCurrentPlayer().name)")
-            playerManager.nextPlayer()
-        }
-        print("\n\nHope you guys are ready, cause here comes the battle !")
+        //Plays the battle
+        battle()
         
-        //Battle loop
-        while playerManager.getNumberOfPlayersAlive() > 1 && playerManager.getNonMageAlives() > 0 {
-            print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
-            print(playerManager.recapPlayersTeam())
-            print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
-            
-            //Select a character in currentPlayer's team
-            let atkChar:Character = charSelectionInput(player: playerManager.getCurrentPlayer())
-            
-            //See if character found a chest
-            lookForChest(char: atkChar)
-            
-            var defChar:Character
-            if atkChar is Mage {
-                print("\n\nAnd who do you want to heal (type your character's number) ?")
-                defChar = charSelectionInput(player: playerManager.getCurrentPlayer())
-            }
-            else {
-                print("\n\nAnd who will be your target for this turn (type enemy's character's number) ?")
-                defChar = charSelectionInput(player: playerManager.getNextPlayer())
-            }
-            
-            switch atkChar.status {
-            case .Confused:
-                print("\n\(atkChar.name) is confused. He lost his target.")
-                //Do the duel between attacker and defender
-                print(duel(atkChar: atkChar, defChar: getRandomChar()))
-            case .Paralyzed:
-                //Rand O/1 cause there is 50% chance of hitting target when paralyzed
-                let rnd = Int.random(in: 0...1)
-                if rnd == 0 {
-                    print("\n\(atkChar.name) is paralyzed. He couldn't do anything.")
-                }
-                else {
-                    //Do the duel between attacker and defender
-                    print(duel(atkChar: atkChar, defChar: defChar))
-                }
-            default:
-                //Do the duel between attacker and defender
-                print(duel(atkChar: atkChar, defChar: defChar))
-            }
-            
-            //Update player's characters status
-            updateStatus(player: playerManager.getCurrentPlayer())
-            
-            //End of the player's turn, we want the next player.
-            playerManager.nextPlayer()
-        }
-        
-        print("\n\nBattle is over. It ended in \(nbOfTurns) turn(s).")
-        
-        if(playerManager.getNonMageAlives() < 1) {
-            print("\n\nOnly Mages were left on the battlefield. All the teams agreed to surrender. No winner in this battle.\n\n")
-        }
-        else {
-            if let winner = playerManager.getFirstPlayerAlive() {
-                print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
-            }
-            else {
-                print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
-            }
-        }
+        //does the prints for the end of the battle. prints nbofturns and winning or losing messages
+        battleOver()
     }
     
     //function to ask a name.
@@ -131,6 +51,7 @@ class Game {
                     return userName
                 }
                 else {
+                    print("\nOk, you can pick an other one.\n")
                     //notify nameManager that name was not picked
                     nameManager.nameNotPicked(name: userName)
                     return askName()
@@ -142,7 +63,7 @@ class Game {
             }
         }
         else {
-            print("\nHum... I guess i did not hear you well !\n")
+            print("\nOk, you can pick an other name.\n")
             return askName()
         }
     }
@@ -161,6 +82,47 @@ class Game {
         else{
             return false
         }
+    }
+    
+    //Prints introduction messages and adds players
+    func introPlayers() {
+        print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely !")
+        
+        for _ in 0..<playerManager.maxPlayers {
+            print("\n\nWhat's your name Player \(playerManager.getNumberOfPlayers()+1) ?")
+            playerManager.addPlayer(name: askName())
+        }
+        
+        print("\nAwesome ! Now that you are all here, why don't you take some time to build a team ? \n")
+        print("You have to select your characters. I will ask you what class you want to pick and what is your character's name. Let's start ! \n")
+    }
+    
+    //func to do the players team selection
+    private func playersTeamSelection() {
+        for _ in 0..<playerManager.getNumberOfPlayers() {
+            print("\n\n\(playerManager.getCurrentPlayer().name), you can build your team.\n")
+            //For loop to create all characters of player's team
+            for _ in 0..<playerManager.getCurrentPlayer().maxCharInTeam {
+                print("\nNow it's time to pick a new character.\n")
+                print("How do you want to name him/her ?")
+                let charName:String = askName()
+                playerManager.getCurrentPlayer().team.append(createCharacter(name:charName))
+            }
+            playerManager.nextPlayer()
+        }
+    }
+    
+    //Prints to recap rules and playing order
+    func playingOrder() {
+        print("\nHere's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. ")
+        
+        print("\n\nHere's the playing order: ")
+        //loop through the players to get their names
+        for _ in 0..<playerManager.getNumberOfPlayers() {
+            print("\(playerManager.getCurrentPlayer().name)")
+            playerManager.nextPlayer()
+        }
+        print("\n\nHope you guys are ready, cause here comes the battle !")
     }
     
     //Func for character creation. Ask the user for the class and name of his character and
@@ -221,6 +183,77 @@ class Game {
         }
     }
     
+    //Plays the battle
+    func battle() {
+        while playerManager.getNumberOfPlayersAlive() > 1 && playerManager.getNonMageAlives() > 0 {
+
+            //recap all players team and asks to select a char in player's team
+            beginTurn()
+            
+            //Select a character in currentPlayer's team
+            let atkChar:Character = charSelectionInput(player: playerManager.getCurrentPlayer())
+            
+            //See if character found a chest
+            lookForChest(char: atkChar)
+            
+            //Select target character for the action
+            let defChar:Character = askDefChar(atkChar: atkChar)
+
+            //Does the duel and handles status alteration
+            handleStatus(atkChar: atkChar, defChar: defChar)
+            
+            //Update player's characters status
+            updateStatus(player: playerManager.getCurrentPlayer())
+            
+            //End of the player's turn, we want the next player.
+            playerManager.nextPlayer()
+        }
+    }
+    
+    //recap all players team and asks to select a char in player's team
+    func beginTurn() {
+        print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
+        print(playerManager.recapPlayersTeam())
+        print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
+    }
+    
+    //asks player to pick a target char and returns char picked
+    func askDefChar(atkChar:Character) -> Character {
+        var defChar:Character
+        if atkChar is Mage {
+            print("\n\nAnd who do you want to heal (type your character's number) ?")
+            defChar = charSelectionInput(player: playerManager.getCurrentPlayer())
+        }
+        else {
+            print("\n\nAnd who will be your target for this turn (type enemy's character's number) ?")
+            defChar = charSelectionInput(player: playerManager.getNextPlayer())
+        }
+        return defChar
+    }
+    
+    //Does the duel and handles status alteration
+    func handleStatus(atkChar:Character, defChar:Character) {
+        switch atkChar.status {
+        case .Confused:
+            print("\n\(atkChar.name) is confused. He lost his target.")
+            //Do the duel between attacker and defender
+            print(duel(atkChar: atkChar, defChar: getRandomChar()))
+        case .Paralyzed:
+            //Rand O/1 cause there is 50% chance of hitting target when paralyzed
+            let rnd = Int.random(in: 0...1)
+            if rnd == 0 {
+                print("\n\(atkChar.name) is paralyzed. He couldn't do anything.")
+            }
+            else {
+                //Do the duel between attacker and defender
+                print(duel(atkChar: atkChar, defChar: defChar))
+            }
+        default:
+            //Do the duel between attacker and defender
+            print(duel(atkChar: atkChar, defChar: defChar))
+        }
+    }
+    
     //Generate random int to know if character found a chest. If there is a chest, character will find a random weapon and equip it.
     private func lookForChest(char:Character) {
         //25‰ chance to find it
@@ -250,7 +283,7 @@ class Game {
     
     //Func that will do an attack between current player and next player.
     //Returns a string that describes the action of this turn.
-    func duel(atkChar:Character, defChar:Character) -> String {
+    private func duel(atkChar:Character, defChar:Character) -> String {
         var output:String = "\n\n"
         
         switch atkChar {
@@ -279,9 +312,26 @@ class Game {
     }
     
     //Updates status of the player's characters by removing one turn left in stateTurns
-    func updateStatus(player:Player) {
+    private func updateStatus(player:Player) {
         for char in player.team {
             char.updateStatus()
+        }
+    }
+    
+    //does the prints for the end of the battle. prints nbofturns and winning or losing messages
+    private func battleOver() {
+        print("\n\nBattle is over. It ended in \(nbOfTurns) turn(s).")
+        
+        if(playerManager.getNonMageAlives() < 1) {
+            print("\n\nOnly Mages were left on the battlefield. All the teams agreed to surrender. No winner in this battle.\n\n")
+        }
+        else {
+            if let winner = playerManager.getFirstPlayerAlive() {
+                print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
+            }
+            else {
+                print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
+            }
         }
     }
 }
