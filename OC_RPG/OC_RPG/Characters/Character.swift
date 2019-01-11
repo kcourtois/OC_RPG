@@ -14,7 +14,7 @@ class Character {
         case Normal, Poisoned, Paralyzed, Confused
     }
     //StateTurns is an int that determins how many turns are left with an altered state
-    var stateTurns:Int {
+    private var stateTurns:Int {
         didSet {
             //If stateTurns goes to 0, status alteration is over. status goes back to normal
             if stateTurns <= 0 {
@@ -71,6 +71,13 @@ class Character {
     //Returns a string to resume all the datas of the character
     func printChar() -> String {
         return "\(name), \(className). Atk: \(weapon.power), HP: \(currentHp)/\(maxHp), Status: \(status)."
+    }
+    
+    //updates status by decreasing stateTurns
+    func updateStatus() {
+        if status != .Normal {
+            stateTurns -= 1
+        }
     }
     
     //Opens the chest given in parameters and equip the new weapon found inside it

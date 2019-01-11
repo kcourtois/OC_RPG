@@ -25,19 +25,26 @@ class PlayerManager {
         return (beginNumber + nbNext+1) % players.count
     }
     //Bool to know if we picked who plays first
-    var firstPlayerPicked:Bool
+    private var firstPlayerPicked:Bool
+    
+    //int to store max number of players in the game
+    let maxPlayers:Int
     
     //Initialization of the vars
     init() {
         firstPlayerPicked = false
         players = [Player]()
         beginNumber = 0
+        //maximum players set to 2
+        maxPlayers = 2
         nbNext = 0
     }
     
     //adds a player in the players array
     func addPlayer(name:String) {
-        players.append(Player(name: name))
+        if players.count < maxPlayers {
+            players.append(Player(name: name))
+        }
     }
     
     //returns the number of players in the game

@@ -14,14 +14,12 @@ class Game {
     
     private let playerManager:PlayerManager = PlayerManager()
     private let nameManager:NameManager = NameManager()
-    //Sets the number of players in the game
-    private let maxPlayers:Int = 2
 
     func play(){
-        print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely ! \n\n")
+        print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely !")
         
-        for _ in 0..<maxPlayers {
-            print("What's your name Player \(playerManager.getNumberOfPlayers()+1) ?")
+        for _ in 0..<playerManager.maxPlayers {
+            print("\n\nWhat's your name Player \(playerManager.getNumberOfPlayers()+1) ?")
             playerManager.addPlayer(name: askName())
         }
         
@@ -43,13 +41,13 @@ class Game {
         
         print("\nHere's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. ")
         
-        print("Here's the playing order: ")
+        print("\n\nHere's the playing order: ")
         //loop through the players to get their names
         for _ in 0..<playerManager.getNumberOfPlayers() {
             print("\(playerManager.getCurrentPlayer().name)")
             playerManager.nextPlayer()
         }
-        print("Hope you guys are ready, cause here comes the battle !\n\n")
+        print("\n\nHope you guys are ready, cause here comes the battle !")
         
         let fight = Fight()
         

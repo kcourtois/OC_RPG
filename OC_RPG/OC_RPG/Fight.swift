@@ -51,9 +51,7 @@ class Fight {
     //Updates status of the player's characters by removing one turn left in stateTurns
     func updateStatus(player:Player) {
         for char in player.team {
-            if char.status != .Normal {
-                char.stateTurns -= 1
-            }
+            char.updateStatus()
         }
     }
 }
