@@ -73,6 +73,19 @@ class PlayerManager {
         return nil
     }
     
+    //Returns number of characters alive that are not mage
+    func getNonMageAlives() -> Int {
+        var nonMageAlives:Int = 0
+        for player in players {
+            for char in player.team {
+                if !(char is Mage) {
+                    nonMageAlives += 1
+                }
+            }
+        }
+        return nonMageAlives
+    }
+    
     //returns current player
     func getCurrentPlayer() -> Player {
         //If we didn't pick who will play first, we do it now

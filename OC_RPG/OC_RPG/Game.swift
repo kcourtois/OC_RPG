@@ -53,7 +53,7 @@ class Game {
         print("\n\nHope you guys are ready, cause here comes the battle !")
         
         //Battle loop
-        while playerManager.getNumberOfPlayersAlive() > 1 {
+        while playerManager.getNumberOfPlayersAlive() > 1 && playerManager.getNonMageAlives() > 0 {
             print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
             print(playerManager.recapPlayersTeam())
             print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
@@ -78,7 +78,7 @@ class Game {
             case .Confused:
                 print("\n\(atkChar.name) is confused. He lost his target.")
                 //Do the duel between attacker and defender
-                print(fight.duel(atkChar: atkChar, defChar: getRandomChar()))
+                print(duel(atkChar: atkChar, defChar: getRandomChar()))
             case .Paralyzed:
                 //Rand O/1 cause there is 50% chance of hitting target when paralyzed
                 let rnd = Int.random(in: 0...1)
@@ -103,11 +103,16 @@ class Game {
         
         print("\n\nBattle is over. It ended in \(nbOfTurns) turn(s).")
         
-        if let winner = playerManager.getFirstPlayerAlive() {
-            print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
+        if(playerManager.getNonMageAlives() < 1) {
+            print("\n\nOnly Mages were left on the battlefield. All the teams agreed to surrender. No winner in this battle.\n\n")
         }
         else {
-            print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
+            if let winner = playerManager.getFirstPlayerAlive() {
+                print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
+            }
+            else {
+                print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
+            }
         }
     }
     
