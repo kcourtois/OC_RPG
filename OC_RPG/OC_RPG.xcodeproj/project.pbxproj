@@ -15,7 +15,6 @@
 		9E2FD3A921C7ED7C00FC2A60 /* Colossus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD3A821C7ED7C00FC2A60 /* Colossus.swift */; };
 		9E2FD3AB21C7ED8C00FC2A60 /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD3AA21C7ED8C00FC2A60 /* Dwarf.swift */; };
 		9E2FD3AD21C815EE00FC2A60 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD3AC21C815EE00FC2A60 /* Character.swift */; };
-		9E2FD3B121C8FDB500FC2A60 /* Fight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD3B021C8FDB500FC2A60 /* Fight.swift */; };
 		9EB12E0021CC09B300C53E6B /* NameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12DFF21CC09B300C53E6B /* NameManager.swift */; };
 		9EB12E0221CC09D600C53E6B /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0121CC09D600C53E6B /* PlayerManager.swift */; };
 		9EB12E0421CC0A7E00C53E6B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E0321CC0A7E00C53E6B /* Weapon.swift */; };
@@ -65,7 +64,6 @@
 		9E2FD3A821C7ED7C00FC2A60 /* Colossus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colossus.swift; sourceTree = "<group>"; };
 		9E2FD3AA21C7ED8C00FC2A60 /* Dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
 		9E2FD3AC21C815EE00FC2A60 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		9E2FD3B021C8FDB500FC2A60 /* Fight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fight.swift; sourceTree = "<group>"; };
 		9EB12DFF21CC09B300C53E6B /* NameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameManager.swift; sourceTree = "<group>"; };
 		9EB12E0121CC09D600C53E6B /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		9EB12E0321CC0A7E00C53E6B /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 				9E2FD3A321C7ED1A00FC2A60 /* Characters */,
 				9E2FD38F21C7A85300FC2A60 /* main.swift */,
 				9E2FD39621C7AFB900FC2A60 /* Player.swift */,
-				9E2FD3B021C8FDB500FC2A60 /* Fight.swift */,
 				9E2FD39E21C7B7C000FC2A60 /* Game.swift */,
 				9EB12DFF21CC09B300C53E6B /* NameManager.swift */,
 				9EB12E0121CC09D600C53E6B /* PlayerManager.swift */,
@@ -278,7 +275,6 @@
 				9EB12E4B21E4AAC900C53E6B /* CopperDagger.swift in Sources */,
 				9EB12E4A21E4AAC900C53E6B /* GoldenDagger.swift in Sources */,
 				9EB12E4D21E4AAC900C53E6B /* WoodenDagger.swift in Sources */,
-				9E2FD3B121C8FDB500FC2A60 /* Fight.swift in Sources */,
 				9EB12E3A21DCCD5700C53E6B /* GoldenAxe.swift in Sources */,
 				9E2FD3A921C7ED7C00FC2A60 /* Colossus.swift in Sources */,
 				9EB12E1F21DCC64F00C53E6B /* WoodenAxe.swift in Sources */,

@@ -11,9 +11,12 @@ import Foundation
 //This class will hold all the datas of a game.
 //Everything that happens in the game will be handled here.
 class Game {
-    
+    //playermanager handles the players
     private let playerManager:PlayerManager = PlayerManager()
+    //namemanager handles the names
     private let nameManager:NameManager = NameManager()
+    //Stores the number of turns that were played until the end of the battle
+    private var nbOfTurns:Int = 0
 
     func play(){
         print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely !")
@@ -48,8 +51,6 @@ class Game {
             playerManager.nextPlayer()
         }
         print("\n\nHope you guys are ready, cause here comes the battle !")
-        
-        let fight = Fight()
         
         //Battle loop
         while playerManager.getNumberOfPlayersAlive() > 1 {
@@ -86,19 +87,21 @@ class Game {
                 }
                 else {
                     //Do the duel between attacker and defender
-                    print(fight.duel(atkChar: atkChar, defChar: defChar))
+                    print(duel(atkChar: atkChar, defChar: defChar))
                 }
             default:
                 //Do the duel between attacker and defender
-                print(fight.duel(atkChar: atkChar, defChar: defChar))
+                print(duel(atkChar: atkChar, defChar: defChar))
             }
             
             //Update player's characters status
-            fight.updateStatus(player: playerManager.getCurrentPlayer())
+            updateStatus(player: playerManager.getCurrentPlayer())
             
             //End of the player's turn, we want the next player.
             playerManager.nextPlayer()
         }
+        
+        print("\n\nBattle is over. It ended in \(nbOfTurns) turn(s).")
         
         if let winner = playerManager.getFirstPlayerAlive() {
             print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
@@ -239,35 +242,41 @@ class Game {
             return playerManager.getNextPlayer().getRandomCharacter()
         }
     }
-
-    func test() {
-        //Adds 2 test players
-        playerManager.addPlayer(name: "Kevin")
-        playerManager.addPlayer(name: "Xavier")
+    
+    //Func that will do an attack between current player and next player.
+    //Returns a string that describes the action of this turn.
+    func duel(atkChar:Character, defChar:Character) -> String {
+        var output:String = "\n\n"
         
-        print("\n\nHere's the playing order: ")
-        //loop through the players to get their names
-        for _ in 0..<playerManager.getNumberOfPlayers() {
-            print("\(playerManager.getCurrentPlayer().name)")
-            playerManager.nextPlayer()
+        switch atkChar {
+        case is Mage:
+            output += "\(atkChar.name) heals \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) feels better now. HP: \(defChar.currentHp) -> "
+        case is Fighter:
+            output += "\(atkChar.name) strikes \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) couldn't dodge this blade. HP: \(defChar.currentHp) -> "
+        case is Colossus:
+            output += "\(atkChar.name) slaps \(defChar.name) with his \(atkChar.weapon.name). Ouch, \(defChar.name) will have a headache. HP: \(defChar.currentHp) -> "
+        case is Dwarf:
+            output += "\(atkChar.name) smashes \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) is seriously injured. HP: \(defChar.currentHp) -> "
+        case is Rogue:
+            output += "\(atkChar.name) stabs \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) did not see this coming. HP: \(defChar.currentHp) -> "
+        default:
+            output += "\(defChar.name) was attacked by \(atkChar.name). HP: \(defChar.currentHp) -> "
         }
         
-        //Create p1 team
-        playerManager.getCurrentPlayer().team.append(Fighter(name: "Aragorn"))
-        playerManager.getCurrentPlayer().team.append(Mage(name: "Gandalf"))
-        playerManager.getCurrentPlayer().team.append(Dwarf(name: "Gimli"))
-        //Pick next player
-        playerManager.nextPlayer()
-        //Create p2 team
-        playerManager.getCurrentPlayer().team.append(Rogue(name: "Snow"))
-        playerManager.getCurrentPlayer().team.append(Mage(name: "Marwyn"))
-        playerManager.getCurrentPlayer().team.append(Colossus(name: "Hodor"))
-        //Go back to initial player
-        playerManager.nextPlayer()
+        //Do the action of the turn
+        atkChar.attack(target: defChar)
+        //Adds new hp to the output
+        output += "\(defChar.currentHp)."
+        //Turn ends, nb of turns increases
+        nbOfTurns += 1
         
-
-        print("\n\nHope you guys are ready, cause here comes the battle !")
-        
-
+        return output
+    }
+    
+    //Updates status of the player's characters by removing one turn left in stateTurns
+    func updateStatus(player:Player) {
+        for char in player.team {
+            char.updateStatus()
+        }
     }
 }
