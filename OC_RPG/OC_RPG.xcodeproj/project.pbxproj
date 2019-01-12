@@ -40,6 +40,7 @@
 		9EB12E4B21E4AAC900C53E6B /* CopperDagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4721E4AAC900C53E6B /* CopperDagger.swift */; };
 		9EB12E4C21E4AAC900C53E6B /* SilverDagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4821E4AAC900C53E6B /* SilverDagger.swift */; };
 		9EB12E4D21E4AAC900C53E6B /* WoodenDagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E4921E4AAC900C53E6B /* WoodenDagger.swift */; };
+		9EB12E5221E8FC3000C53E6B /* AttackReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB12E5121E8FC3000C53E6B /* AttackReport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 		9EB12E4721E4AAC900C53E6B /* CopperDagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopperDagger.swift; sourceTree = "<group>"; };
 		9EB12E4821E4AAC900C53E6B /* SilverDagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilverDagger.swift; sourceTree = "<group>"; };
 		9EB12E4921E4AAC900C53E6B /* WoodenDagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoodenDagger.swift; sourceTree = "<group>"; };
+		9EB12E5121E8FC3000C53E6B /* AttackReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackReport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				9E2FD3A821C7ED7C00FC2A60 /* Colossus.swift */,
 				9E2FD3AA21C7ED8C00FC2A60 /* Dwarf.swift */,
 				9EB12E4321E4A9F000C53E6B /* Rogue.swift */,
+				9EB12E5121E8FC3000C53E6B /* AttackReport.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				9EB12E3221DCCD4400C53E6B /* GoldenMace.swift in Sources */,
 				9EB12E3F21DCCD6D00C53E6B /* GoldenSword.swift in Sources */,
 				9EB12E0021CC09B300C53E6B /* NameManager.swift in Sources */,
+				9EB12E5221E8FC3000C53E6B /* AttackReport.swift in Sources */,
 				9EB12E3421DCCD4400C53E6B /* SilverMace.swift in Sources */,
 				9E2FD3AD21C815EE00FC2A60 /* Character.swift in Sources */,
 				9E2FD3A521C7ED3E00FC2A60 /* Fighter.swift in Sources */,

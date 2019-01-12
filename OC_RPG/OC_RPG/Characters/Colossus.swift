@@ -15,13 +15,18 @@ class Colossus: Character {
     }
     
     //When attacking, a colossus can paralyze his target
-    override func attack(target: Character) {
-        super.attack(target: target)
+    override func attack(target: Character) -> AttackReport {
+        //Stores hp of the target before atk
+        let previousHp:Int = target.currentHp
+        //Call super but ignore return value
+        _ = super.attack(target: target)
         //25% of chance to paralyze when attacking enemy
         let paralyzePercentage:Int = 25
         let random:Int = Int.random(in: 0...100)
         if random <= paralyzePercentage {
             target.status = .Paralyzed
         }
+        
+        return AttackReport(target: target, attacker: self, actionDesc:"slaps", commentary:"will have a headache.", previousHp: previousHp)
     }
 }

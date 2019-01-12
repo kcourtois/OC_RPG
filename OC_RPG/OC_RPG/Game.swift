@@ -199,7 +199,7 @@ class Game {
             //Select target character for the action
             let defChar:Character = askDefChar(atkChar: atkChar)
 
-            //Does the duel and handles status alteration
+            //Does the attack and handles status alteration
             handleStatus(atkChar: atkChar, defChar: defChar)
             
             //Update player's characters status
@@ -207,6 +207,9 @@ class Game {
             
             //End of the player's turn, we want the next player.
             playerManager.nextPlayer()
+            
+            //Turn ends, nb of turns increases
+            nbOfTurns += 1
         }
     }
     
@@ -231,13 +234,14 @@ class Game {
         return defChar
     }
     
-    //Does the duel and handles status alteration
+    //Does the attack and handles status alteration
     func handleStatus(atkChar:Character, defChar:Character) {
         switch atkChar.status {
         case .Confused:
             print("\n\(atkChar.name) is confused. He lost his target.")
-            //Do the duel between attacker and defender
-            print(duel(atkChar: atkChar, defChar: getRandomChar()))
+            //Does the attack
+            let atkReport:AttackReport = atkChar.attack(target: getRandomChar())
+            print(atkReport.printAttackReport())
         case .Paralyzed:
             //Rand O/1 cause there is 50% chance of hitting target when paralyzed
             let rnd = Int.random(in: 0...1)
@@ -245,12 +249,14 @@ class Game {
                 print("\n\(atkChar.name) is paralyzed. He couldn't do anything.")
             }
             else {
-                //Do the duel between attacker and defender
-                print(duel(atkChar: atkChar, defChar: defChar))
+                //Does the attack
+                let atkReport:AttackReport = atkChar.attack(target: defChar)
+                print(atkReport.printAttackReport())
             }
         default:
-            //Do the duel between attacker and defender
-            print(duel(atkChar: atkChar, defChar: defChar))
+            //Does the attack
+            let atkReport:AttackReport = atkChar.attack(target: defChar)
+            print(atkReport.printAttackReport())
         }
     }
     
@@ -279,36 +285,6 @@ class Game {
         else {
             return playerManager.getNextPlayer().getRandomCharacter()
         }
-    }
-    
-    //Func that will do an attack between current player and next player.
-    //Returns a string that describes the action of this turn.
-    private func duel(atkChar:Character, defChar:Character) -> String {
-        var output:String = "\n\n"
-        
-        switch atkChar {
-        case is Mage:
-            output += "\(atkChar.name) heals \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) feels better now. HP: \(defChar.currentHp) -> "
-        case is Fighter:
-            output += "\(atkChar.name) strikes \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) couldn't dodge this blade. HP: \(defChar.currentHp) -> "
-        case is Colossus:
-            output += "\(atkChar.name) slaps \(defChar.name) with his \(atkChar.weapon.name). Ouch, \(defChar.name) will have a headache. HP: \(defChar.currentHp) -> "
-        case is Dwarf:
-            output += "\(atkChar.name) smashes \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) is seriously injured. HP: \(defChar.currentHp) -> "
-        case is Rogue:
-            output += "\(atkChar.name) stabs \(defChar.name) with his \(atkChar.weapon.name). \(defChar.name) did not see this coming. HP: \(defChar.currentHp) -> "
-        default:
-            output += "\(defChar.name) was attacked by \(atkChar.name). HP: \(defChar.currentHp) -> "
-        }
-        
-        //Do the action of the turn
-        atkChar.attack(target: defChar)
-        //Adds new hp to the output
-        output += "\(defChar.currentHp)."
-        //Turn ends, nb of turns increases
-        nbOfTurns += 1
-        
-        return output
     }
     
     //Updates status of the player's characters by removing one turn left in stateTurns

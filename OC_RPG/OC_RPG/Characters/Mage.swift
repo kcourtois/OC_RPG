@@ -13,4 +13,14 @@ class Mage: Character {
         let basicWeapon = WoodenStaff()
         super.init(name: name, className: "Mage", maxHp: 100, weapon: basicWeapon)
     }
+    
+    //Custom mage attack report
+    override func attack(target: Character) -> AttackReport {
+        //Stores hp of the target before atk
+        let previousHp:Int = target.currentHp
+        //Call super but ignore return value
+        _ = super.attack(target: target)
+        
+        return AttackReport(target: target, attacker: self, actionDesc:"heals", commentary:"feels better now.", previousHp: previousHp)
+    }
 }

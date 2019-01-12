@@ -86,7 +86,12 @@ class Character {
     }
     
     //Attack function that inflicts weapon power dmg to target
-    func attack(target:Character){
+    func attack(target:Character) -> AttackReport {
+        //Stores hp of the target before atk
+        let previousHp:Int = target.currentHp
+        //Does the attack to the target
         target.currentHp = target.currentHp - weapon.power
+        
+        return AttackReport(target: target, attacker: self, actionDesc:"was attacked by", commentary:"doesn't care.", previousHp: previousHp)
     }
 }
