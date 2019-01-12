@@ -24,6 +24,7 @@ class AttackReport {
         self.commentary = commentary
         self.previousHp = previousHp
     }
+    
     //Func to return a report of an attack in string format
     func printAttackReport() -> String {
         return "\(target.name) \(actionDesc) \(attacker.name) with his \(attacker.weapon.name). \(target.name) \(commentary) HP: \(previousHp) -> \(target.currentHp)"

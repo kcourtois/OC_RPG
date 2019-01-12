@@ -85,7 +85,7 @@ class Game {
     }
     
     //Prints introduction messages and adds players
-    func introPlayers() {
+    private func introPlayers() {
         print("Hello, Adventurers ! Welcome to OC RPG ! \n OC RPG is a simple battle game were you fight each other to death. Create your own team of heroes and defeat your opponent bravely !")
         
         for _ in 0..<playerManager.maxPlayers {
@@ -113,7 +113,7 @@ class Game {
     }
     
     //Prints to recap rules and playing order
-    func playingOrder() {
+    private func playingOrder() {
         print("\nHere's a quick reminder for the rules. Each of you will use his team to defeat his oppononent. The first player that takes down the whole team of his enemy will be the winner. ")
         
         print("\n\nHere's the playing order: ")
@@ -184,7 +184,7 @@ class Game {
     }
     
     //Plays the battle
-    func battle() {
+    private func battle() {
         while playerManager.getNumberOfPlayersAlive() > 1 && playerManager.getNonMageAlives() > 0 {
 
             //recap all players team and asks to select a char in player's team
@@ -214,14 +214,14 @@ class Game {
     }
     
     //recap all players team and asks to select a char in player's team
-    func beginTurn() {
+    private func beginTurn() {
         print("\n\nTEAM RECAP - \(playerManager.getCurrentPlayer().name.uppercased())'S TURN")
         print(playerManager.recapPlayersTeam())
         print("\n\n\(playerManager.getCurrentPlayer().name), who will fight for this turn (type your character's number) ?")
     }
     
     //asks player to pick a target char and returns char picked
-    func askDefChar(atkChar:Character) -> Character {
+    private func askDefChar(atkChar:Character) -> Character {
         var defChar:Character
         if atkChar is Mage {
             print("\n\nAnd who do you want to heal (type your character's number) ?")
@@ -235,7 +235,7 @@ class Game {
     }
     
     //Does the attack and handles status alteration
-    func handleStatus(atkChar:Character, defChar:Character) {
+    private func handleStatus(atkChar:Character, defChar:Character) {
         switch atkChar.status {
         case .Confused:
             print("\n\(atkChar.name) is confused. He lost his target.")
