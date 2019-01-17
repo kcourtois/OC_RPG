@@ -27,6 +27,6 @@ class AttackReport {
     
     //Func to return a report of an attack in string format
     func printAttackReport() -> String {
-        return "\(target.name) \(actionDesc) \(attacker.name) with his \(attacker.weapon.name). \(target.name) \(commentary) HP: \(previousHp) -> \(target.currentHp)"
+        return "\n\(attacker.name) \(actionDesc) \(target.name) with his \(attacker.weapon.name). \(target.name) \(commentary) HP: \(previousHp) -> \(target.currentHp)"
     }
 }

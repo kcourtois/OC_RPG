@@ -21,7 +21,7 @@ class Dwarf: Character {
         //Call super but ignore return value
         _ = super.attack(target: target)
         //15% of chance to get confused when attacking enemy
-        let confusionPercentage:Int = 15
+        let confusionPercentage:Int = 150
         let random:Int = Int.random(in: 0...100)
         if random <= confusionPercentage {
             self.status = .Confused

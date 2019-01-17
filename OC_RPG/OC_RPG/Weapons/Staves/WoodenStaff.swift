@@ -8,7 +8,7 @@
 
 import Foundation
 
-//Staff are healing weapon so damage are negative
+//Staves are healing weapon so damage are negative
 class WoodenStaff: Weapon {
     init() {
         super.init(name: "Wooden Staff", power: -10)
