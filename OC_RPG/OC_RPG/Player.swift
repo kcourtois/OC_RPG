@@ -14,12 +14,11 @@ class Player {
     //Team will be the characters created by the player.
     var team:[Character]
     //Defines how many characters the player can create
-    var maxCharInTeam:Int
+    let maxCharInTeam:Int = 3
     
     init(name:String) {
         self.name = name
         self.team = []
-        self.maxCharInTeam = 3
     }
     
     //Returns a formated string with all the characters of the team, with their class and name.

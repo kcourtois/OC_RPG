@@ -9,32 +9,97 @@
 import Foundation
 
 class Chest {
-    //Array that contains all the weapons available to rogues
-    let rogueWeapons:[Weapon] = [WoodenDagger(), CopperDagger(), SilverDagger(), GoldenDagger()]
-    //Array that contains all the weapons available to fighters
-    let fighterWeapons:[Weapon] = [WoodenSword(), CopperSword(), SilverSword(), GoldenSword()]
-    //Array that contains all the weapons available to colossuses
-    let colossusWeapons:[Weapon] = [WoodenMace(), CopperMace(), SilverMace(), GoldenMace()]
-    //Array that contains all the weapons available to mages
-    let mageWeapons:[Weapon] = [WoodenStaff(), RainStaff(), OwlStaff(), NurturerStaff()]
-    //Array that contains all the weapons available to dwarves
-    let dwarfWeapons:[Weapon] = [WoodenAxe(), CopperAxe(), SilverAxe(), GoldenAxe()]
-    
+
     //func to return a random weapon matching character class
     func loot(char:Character) -> Weapon {
         switch char {
         case is Colossus:
-            return colossusWeapons[Int.random(in: 0..<colossusWeapons.count)]
+            return randomColossusWeapon()
         case is Fighter:
-            return fighterWeapons[Int.random(in: 0..<fighterWeapons.count)]
+            return randomFighterWeapon()
         case is Dwarf:
-            return dwarfWeapons[Int.random(in: 0..<dwarfWeapons.count)]
+            return randomDwarfWeapon()
         case is Rogue:
-            return rogueWeapons[Int.random(in: 0..<rogueWeapons.count)]
+            return randomRogueWeapon()
         case is Mage:
-            return mageWeapons[Int.random(in: 0..<mageWeapons.count)]
+            return randomMageWeapon()
         default:
             return Weapon(name: "Wooden Stick", power: 1)
+        }
+    }
+    
+    //Returns a random colossus weapon
+    private func randomColossusWeapon() -> Weapon {
+        let rand = Int.random(in: 0..<4)
+        switch rand {
+        case 1:
+            return CopperMace()
+        case 2:
+            return SilverMace()
+        case 3:
+            return GoldenMace()
+        default:
+            return WoodenMace()
+        }
+    }
+    
+    //Returns a random fighter weapon
+    private func randomFighterWeapon() -> Weapon {
+        let rand = Int.random(in: 0..<4)
+        switch rand {
+        case 1:
+            return CopperSword()
+        case 2:
+            return SilverSword()
+        case 3:
+            return GoldenSword()
+        default:
+            return WoodenSword()
+        }
+    }
+    
+    //Returns a random dwarf weapon
+    private func randomDwarfWeapon() -> Weapon {
+        let rand = Int.random(in: 0..<4)
+        switch rand {
+        case 1:
+            return CopperAxe()
+        case 2:
+            return SilverAxe()
+        case 3:
+            return GoldenAxe()
+        default:
+            return WoodenAxe()
+        }
+    }
+    
+    //Returns a random rogue weapon
+    private func randomRogueWeapon() -> Weapon {
+        let rand = Int.random(in: 0..<4)
+        switch rand {
+        case 1:
+            return CopperDagger()
+        case 2:
+            return SilverDagger()
+        case 3:
+            return GoldenDagger()
+        default:
+            return WoodenDagger()
+        }
+    }
+    
+    //Returns a random mage weapon
+    private func randomMageWeapon() -> Weapon {
+        let rand = Int.random(in: 0..<4)
+        switch rand {
+        case 1:
+            return RainStaff()
+        case 2:
+            return OwlStaff()
+        case 3:
+            return NurturerStaff()
+        default:
+            return WoodenStaff()
         }
     }
 }

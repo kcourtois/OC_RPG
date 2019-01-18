@@ -13,28 +13,24 @@ class PlayerManager {
     //Stores the players of the game
     private var players:[Player]
     //Number of the player that begins the game
-    private var beginNumber:Int
+    private var beginNumber:Int?
     //number that will be increased to get next player
     private var nbNext:Int
     //playerNumber will be used to get the player index in the players array
     private var playerNumber:Int {
-        return (beginNumber + nbNext) % players.count
+        return (beginNumber! + nbNext) % players.count
     }
     //nextPlayerNumber will be used to get the next player index in the players array
     private var nextPlayerNumber:Int {
-        return (beginNumber + nbNext+1) % players.count
+        return (beginNumber! + nbNext+1) % players.count
     }
-    //Bool to know if we picked who plays first
-    private var firstPlayerPicked:Bool
     
     //int to store max number of players in the game
     let maxPlayers:Int
     
     //Initialization of the vars
     init() {
-        firstPlayerPicked = false
         players = [Player]()
-        beginNumber = 0
         //maximum players set to 2
         maxPlayers = 2
         nbNext = 0
@@ -89,15 +85,18 @@ class PlayerManager {
     //returns current player
     func getCurrentPlayer() -> Player {
         //If we didn't pick who will play first, we do it now
-        if(!firstPlayerPicked){
+        if(beginNumber == nil){
             pickFirstPlayer()
-            firstPlayerPicked = true
         }
         return players[playerNumber]
     }
     
     //returns next player
     func getNextPlayer() -> Player {
+        //If we didn't pick who will play first, we do it now
+        if(beginNumber == nil){
+            pickFirstPlayer()
+        }
         return players[nextPlayerNumber]
     }
     
@@ -105,7 +104,7 @@ class PlayerManager {
     func nextPlayer() {
         nbNext += 1
     }
-    
+
     //returns a string formated that containes players names and team compositions
     func recapPlayersTeam() -> String {
         var output:String = ""
