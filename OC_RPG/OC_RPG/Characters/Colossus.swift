@@ -11,22 +11,17 @@ import Foundation
 class Colossus: Character {
     init(name:String) {
         let basicWeapon = WoodenMace()
-        super.init(name: name, className: "Colossus", maxHp: 200, weapon: basicWeapon)
+        super.init(name: name, className: "Colossus", maxHp: 200, weapon: basicWeapon, actionDesc:"slaps", commentary:"will have a headache.")
     }
     
     //When attacking, a colossus can paralyze his target
     override func attack(target: Character) -> AttackReport {
-        //Stores hp of the target before atk
-        let previousHp:Int = target.currentHp
-        //Call super but ignore return value
-        _ = super.attack(target: target)
         //25% of chance to paralyze when attacking enemy
         let paralyzePercentage:Int = 25
         let random:Int = Int.random(in: 0...100)
         if random <= paralyzePercentage {
             target.status = .Paralyzed
         }
-        
-        return AttackReport(target: target, attacker: self, actionDesc:"slaps", commentary:"will have a headache.", previousHp: previousHp)
+        return super.attack(target: target)
     }
 }

@@ -11,14 +11,10 @@ import Foundation
 class Rogue: Character {
     init(name:String) {
         let basicWeapon = WoodenDagger()
-        super.init(name: name, className: "Rogue", maxHp: 80, weapon: basicWeapon)
+        super.init(name: name, className: "Rogue", maxHp: 80, weapon: basicWeapon, actionDesc:"stabs", commentary:"did not see this coming.")
     }
     //When attacking, a rogue can poison his target
     override func attack(target: Character) -> AttackReport {
-        //Stores hp of the target before atk
-        let previousHp:Int = target.currentHp
-        //Call super but ignore return value
-        _ = super.attack(target: target)
         //33% of chance to poison when attacking enemy
         let poisonPercentage:Int = 33
         let random:Int = Int.random(in: 0...100)
@@ -26,6 +22,6 @@ class Rogue: Character {
             target.status = .Poisoned
         }
         
-        return AttackReport(target: target, attacker: self, actionDesc:"stabs", commentary:"did not see this coming.", previousHp: previousHp)
+        return super.attack(target: target)
     }
 }

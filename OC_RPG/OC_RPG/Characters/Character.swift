@@ -57,8 +57,12 @@ class Character {
     var isAlive:Bool {
         return currentHp > 0
     }
+    //Action description, used for the attack report
+    let actionDesc:String
+    //Commentary, used for the attack report
+    let commentary:String
     
-    init(name:String, className:String, maxHp:Int, weapon:Weapon) {
+    init(name:String, className:String, maxHp:Int, weapon:Weapon, actionDesc:String, commentary:String) {
         self.name = name
         self.maxHp = maxHp
         self.currentHp = maxHp
@@ -66,6 +70,8 @@ class Character {
         self.className = className
         self.status = .Normal
         self.stateTurns = 0
+        self.actionDesc = actionDesc
+        self.commentary = commentary
     }
     
     //Returns a string to resume all the datas of the character
@@ -92,6 +98,8 @@ class Character {
         //Does the attack to the target
         target.currentHp = target.currentHp - weapon.power
         
-        return AttackReport(target: target, attacker: self, actionDesc:"was attacked by", commentary:"doesn't care.", previousHp: previousHp)
+        return AttackReport(target: target, attacker: self, actionDesc: actionDesc, commentary: commentary, previousHp: previousHp)
     }
 }
+//"was attacked by"
+//"doesn't care."
