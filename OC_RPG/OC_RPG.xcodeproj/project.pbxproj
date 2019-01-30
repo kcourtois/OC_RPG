@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E01F8112201B03B00D87E97 /* DefaultWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E01F8102201B03B00D87E97 /* DefaultWeapon.swift */; };
 		9E2FD39021C7A85300FC2A60 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD38F21C7A85300FC2A60 /* main.swift */; };
 		9E2FD39721C7AFB900FC2A60 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD39621C7AFB900FC2A60 /* Player.swift */; };
 		9E2FD39F21C7B7C000FC2A60 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FD39E21C7B7C000FC2A60 /* Game.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9E01F8102201B03B00D87E97 /* DefaultWeapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWeapon.swift; sourceTree = "<group>"; };
 		9E2FD38C21C7A85300FC2A60 /* OC_RPG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OC_RPG; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2FD38F21C7A85300FC2A60 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9E2FD39621C7AFB900FC2A60 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				9EB12E1921DCC4CD00C53E6B /* Axes */,
 				9EB12E1821DCC4BF00C53E6B /* Swords */,
 				9EB12E0321CC0A7E00C53E6B /* Weapon.swift */,
+				9E01F8102201B03B00D87E97 /* DefaultWeapon.swift */,
 			);
 			path = Weapons;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				9EB12E4421E4A9F000C53E6B /* Rogue.swift in Sources */,
 				9EB12E2E21DCCD3500C53E6B /* OwlStaff.swift in Sources */,
 				9E2FD39021C7A85300FC2A60 /* main.swift in Sources */,
+				9E01F8112201B03B00D87E97 /* DefaultWeapon.swift in Sources */,
 				9EB12E3821DCCD5700C53E6B /* SilverAxe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

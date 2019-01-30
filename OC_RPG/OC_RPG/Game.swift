@@ -301,13 +301,11 @@ class Game {
         if(playerManager.getNonMageAlives() < 1) {
             print("\n\nOnly Mages were left on the battlefield. All the teams agreed to surrender. No winner in this battle.\n\n")
         }
+        else if let winner = playerManager.getFirstPlayerAlive() {
+            print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
+        }
         else {
-            if let winner = playerManager.getFirstPlayerAlive() {
-                print("\n\n\(winner.name) is the winner of this game. Congratulations !\n\n")
-            }
-            else {
-                print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
-            }
+            print("\n\nEveryone is dead. In war, there are no winners. But all are losers.\n\n")
         }
     }
 }

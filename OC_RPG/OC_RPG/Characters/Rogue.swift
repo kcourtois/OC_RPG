@@ -21,7 +21,6 @@ class Rogue: Character {
         if random <= poisonPercentage {
             target.status = .Poisoned
         }
-        
         return super.attack(target: target)
     }
 }

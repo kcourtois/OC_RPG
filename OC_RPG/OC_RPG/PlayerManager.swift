@@ -18,11 +18,21 @@ class PlayerManager {
     private var nbNext:Int
     //playerNumber will be used to get the player index in the players array
     private var playerNumber:Int {
-        return (beginNumber! + nbNext) % players.count
+        if let beginNum = beginNumber {
+            return (beginNum + nbNext) % players.count
+        }
+        else {
+            return 0
+        }
     }
     //nextPlayerNumber will be used to get the next player index in the players array
     private var nextPlayerNumber:Int {
-        return (beginNumber! + nbNext+1) % players.count
+        if let beginNum = beginNumber {
+            return (beginNum + nbNext+1) % players.count
+        }
+        else {
+            return 0
+        }
     }
     
     //int to store max number of players in the game
@@ -84,19 +94,11 @@ class PlayerManager {
     
     //returns current player
     func getCurrentPlayer() -> Player {
-        //If we didn't pick who will play first, we do it now
-        if(beginNumber == nil){
-            pickFirstPlayer()
-        }
         return players[playerNumber]
     }
     
     //returns next player
     func getNextPlayer() -> Player {
-        //If we didn't pick who will play first, we do it now
-        if(beginNumber == nil){
-            pickFirstPlayer()
-        }
         return players[nextPlayerNumber]
     }
     

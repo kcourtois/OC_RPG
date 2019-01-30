@@ -24,7 +24,7 @@ class Chest {
         case is Mage:
             return randomMageWeapon()
         default:
-            return Weapon(name: "Wooden Stick", power: 1)
+            return DefaultWeapon()
         }
     }
     
